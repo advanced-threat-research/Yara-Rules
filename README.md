@@ -1,2 +1,3 @@
 # Yara-Rules
-Repository of YARA rules made by McAfee ATR Team
+
+Repository of YARA rules to accompany the McAfee ATR blogposts & investigations
