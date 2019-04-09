@@ -1,4 +1,3 @@
-
 import "pe"
 
 rule BadBunny {

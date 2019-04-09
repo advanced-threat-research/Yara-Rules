@@ -1,4 +1,3 @@
-
 import "pe"
 
 rule Monero_Mining_Detection {

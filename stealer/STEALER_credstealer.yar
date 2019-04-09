@@ -1,4 +1,4 @@
-rule CredStealESY : For CredStealer
+rule CredStealESY
 {
 	
  meta:
