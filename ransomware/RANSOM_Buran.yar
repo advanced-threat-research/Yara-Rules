@@ -101,5 +101,5 @@ rule buran_ransomware
 
       condition:
       
-            63 of them
+           uint16(0) == 0x5a4d and 63 of them
 }
