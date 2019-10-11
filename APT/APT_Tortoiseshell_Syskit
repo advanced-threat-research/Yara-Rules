@@ -4,7 +4,7 @@ rule syskit {
    meta:
       description = "SYSkit backdoor"
       author = "Christiaan @ McAfee ATR"
-      reference:"https://www.symantec.com/blogs/threat-intelligence/tortoiseshell-apt-supply-chain"
+      reference = "https://www.symantec.com/blogs/threat-intelligence/tortoiseshell-apt-supply-chain"
       date = "2019-09-17"
       hash1 = "07d123364d8d04e3fe0bfa4e0e23ddc7050ef039602ecd72baed70e6553c3ae4"
       hash2 = "f71732f997c53fa45eef5c988697eb4aa62c8655d8f0be3268636fc23addd193"
