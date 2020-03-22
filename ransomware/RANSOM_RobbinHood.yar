@@ -1,5 +1,5 @@
 
-rule Robbinhood ransomware {
+rule Robbinhood_ransomware {
    meta:
       description = "Robbinhood GoLang ransowmare"
       author = "Christiaan Beek @ McAfee ATR"
