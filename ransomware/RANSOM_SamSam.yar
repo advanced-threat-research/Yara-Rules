@@ -1,3 +1,5 @@
+import "pe"
+
 rule SAmSAmRansom2016 {
    
    meta:
