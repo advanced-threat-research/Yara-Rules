@@ -1,15 +1,16 @@
 rule magniber_test_unpacked_ransomware {
 
- meta:
+   meta:
 
-      description = "Rule to detect Magniber ransomware samples" 
-      author = "Marc Rivero | ATR Team" 
+      description = "Rule to detect Magniber ransomware samples"
+      author = "Marc Rivero | McAfee ATR Team"
 
 strings:
-      $s1 = ":\\documents and settings\\default user\\" fullword wide
-      $s2 = ":\\documents and settings\\networkservice\\" fullword wide
-      $s3 = ":\\documents and settings\\all users\\" fullword wide
-      $s4 = ":\\documents and settings\\localservice\\" fullword wide
+
+      $s1 = "\\documents and settings\\default user\\" fullword wide
+      $s2 = "\\documents and settings\\networkservice\\" fullword wide
+      $s3 = "\\documents and settings\\all users\\" fullword wide
+      $s4 = "\\documents and settings\\localservice\\" fullword wide
       $s5 = "\\appdata\\roaming\\" fullword wide
       $s6 = "\\appdata\\locallow\\" fullword wide
       $s7 = "\\appdata\\local\\" fullword wide
