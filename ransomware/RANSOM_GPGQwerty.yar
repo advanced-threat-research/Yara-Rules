@@ -5,7 +5,7 @@ meta:
 
 	author = "McAfee Labs"
 	description = "Detect GPGQwerty ransomware"
-	reference: "https://securingtomorrow.mcafee.com/mcafee-labs/ransomware-takes-open-source-path-encrypts-gnu-privacy-guard/"
+	reference = "https://securingtomorrow.mcafee.com/mcafee-labs/ransomware-takes-open-source-path-encrypts-gnu-privacy-guard/"
 	date = "2018-03-21"
 
 strings:
