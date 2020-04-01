@@ -5,6 +5,8 @@ rule termite_ransomware {
       description = "Rule to detect the Termite Ransomware"
       author = "Marc Rivero | McAfee ATR Team"
       reference = "https://www.bleepingcomputer.com/news/security/the-week-in-ransomware-august-31st-2018-devs-on-vacation/"
+      date = "2018-08-28"
+      hash = "021ca4692d3a721af510f294326a31780d6f8fcd9be2046d1c2a0902a7d58133"
       
    strings:
       
@@ -19,5 +21,7 @@ rule termite_ransomware {
       
    condition:
    
-      ( uint16(0) == 0x5a4d and filesize < 6000KB ) and all of them 
+      ( uint16(0) == 0x5a4d and
+      filesize < 6000KB ) and
+      all of them 
 }
