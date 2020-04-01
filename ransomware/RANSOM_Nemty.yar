@@ -4,6 +4,9 @@ rule nemty_ransomware {
 
       description = "Rule to detect Nemty Ransomware"
       author = "Marc Rivero | McAfee ATR Team"
+      reference = "https://www.bleepingcomputer.com/news/security/nemty-ransomware-punishes-victims-by-posting-their-stolen-data/"
+      date = "2020-02-23"
+      hash = "73bf76533eb0bcc4afb5c72dcb8e7306471ae971212d05d0ff272f171b94b2d4"
 
    strings:
 
@@ -29,5 +32,9 @@ rule nemty_ransomware {
       $s20 = "puh4wXjVYWJzFN6aIgnClL4W/1/5Eg6bm5uEv6Dru0pfOvhmbF1SY3zav4RQVQTYMfZxAsaBYfJ+Gx+6gDEmKggypl1VcVXWRbxAuDIXaByh9aP4B2QvhLnJxZLe+AG5" ascii
 
    condition:
-      ( uint16(0) == 0x5a4d and filesize < 400KB and ( 1 of ($x*) and 4 of them ))
+   
+      ( uint16(0) == 0x5a4d and
+      filesize < 400KB and
+      ( 1 of ($x*) and
+      4 of them ))
 }
