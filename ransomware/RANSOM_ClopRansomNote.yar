@@ -4,6 +4,8 @@ rule clop_ransom_note {
 
       description = "Rule to detect Clop Ransomware Note"
       author = "Marc Rivero | McAfee ATR Team"
+      reference = "https://www.mcafee.com/blogs/other-blogs/mcafee-labs/clop-ransomware/"
+      date = "2019-08-01"
 
    strings:
 
@@ -20,5 +22,8 @@ rule clop_ransom_note {
       $s11 = "eqaltech.su" fullword ascii
 
    condition:
-      ( uint16(0) == 0x6f59) and filesize < 10KB and all of them
+
+      ( uint16(0) == 0x6f59) and 
+      filesize < 10KB and
+      all of them
 }
