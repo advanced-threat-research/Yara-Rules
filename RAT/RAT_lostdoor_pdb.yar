@@ -1,9 +1,12 @@
-rule LostdoorRAT_pdb
-{
+rule LostdoorRAT_pdb {
+	 
 	 meta:
+
 		 description = "Rule to detect LostdoorRAT based on PDB"
 		 author = "Marc Rivero | McAfee ATR Team"
-		 hash = "FB1B0536B4660E67E8AA7BAB17994A7C"
+		 reference = "https://blog.trendmicro.com/trendlabs-security-intelligence/lost-door-rat-accessible-customizable-attack-tool/"
+		 date = "2013-11-25"
+		 hash = "28d0d2611d0fa6309991c1fbd24fe2596891b09f4f6568e6c9328abc9390f5a6"
 		 
 	 strings:
 
@@ -11,5 +14,7 @@ rule LostdoorRAT_pdb
 
 	 condition:
 	 
+	 	uint16(0) == 0x5a4d and
+	 	filesize < 400KB and
 	 	any of them
 }
