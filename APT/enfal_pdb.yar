@@ -4,12 +4,14 @@ rule enfal_pdb
 
 		 description = "Rule to detect Enfal malware"
 		 author = "Marc Rivero | McAfee ATR Team"
-		 hash = "D1B8DC41EFE4208191C766B303793D15"
-		 hash = "A36CD4870446B513E70F903A77754B4F"
-		 hash = "E7F93C894451EF1FDEFA81C6B229852C"
-		 hash = "A3A6B5867A48DB969ABA90DD39771370"
-		 hash = "01A0C09E9B3013C00009DA8D4E9E2B2B"
-		 hash = "7A1D4CBA9CE2A28EF586C27689B5AEA7"
+		 reference = "https://www.trendmicro.com/vinfo/us/threat-encyclopedia/malware/enfal"
+		 date = "2013-08-27"
+		 hash = "6756808313359cbd7c50cd779f809bc9e2d83c08da90dbd80f5157936673d0bf"
+		 hash = "8a038cf6cef7e062d707b50ae20700353fbd7c0d7328f874232cefeb73c99463"
+		 hash = "b56821058103588b242e907451a7f7f5b980ee4b62b648e6197526feae0c8f3c"
+		 hash = "fba718556c1ef52c85ac1b8a889148af054a2b0ecc3b22ce02f6a2f460fc65d0"
+		 hash = "83d7572998462b4054bd7c6ce6e7e79f1f991085b92a2f97df6d7e14598de53a"
+		 hash = "fbc31266f78ab9d50e7b135803db3d24bc1fb0b0c91a0289157a3e3d7fce1e3d"
 
 	 strings:
 
@@ -21,5 +23,7 @@ rule enfal_pdb
 	 
 	 condition:
 
-	 	any of them
+	 	uint16(0) == 0x5a4d and
+ 		filesize < 150KB and
+ 		any of them
 }

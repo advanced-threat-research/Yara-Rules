@@ -1,10 +1,12 @@
-rule APT_Turla_PDB
+rule apt_turla_pdb
 {
 	 meta:
 
 		 description = "Rule to detect a component of the APT Turla"
 		 author = "Marc Rivero | McAfee ATR Team"
-		 hash = "cb1b68d9971c2353c2d6a8119c49b51f"
+		 reference = "https://attack.mitre.org/groups/G0010/"
+		 date = "2017-05-31"
+		 hash = "3b8bd0a0c6069f2d27d759340721b78fd289f92e0a13965262fea4e8907af122"
 	 
 	 strings:
 
@@ -12,5 +14,7 @@ rule APT_Turla_PDB
 
 	 condition:
 	 
-	 	any of them
+	 	uint16(0) == 0x5a4d and
+ 		filesize < 650KB and
+ 		any of them
 }

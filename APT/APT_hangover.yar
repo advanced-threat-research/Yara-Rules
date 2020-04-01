@@ -43,7 +43,7 @@ rule apt_hanover_pdb
  	condition:
 
  	uint16(0) == 0x5a4d and
- 	filesize < 2500KB and
+ 	filesize < 1000KB and
  	any of them
 }
 

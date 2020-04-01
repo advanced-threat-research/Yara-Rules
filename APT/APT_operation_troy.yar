@@ -1,11 +1,13 @@
-rule troy_malware_campaign_pdb
-{
+rule troy_malware_campaign_pdb {
+
 	 meta:
 
 		 description = "Rule to detect the Operation Troy based on the PDB"
 		 author = "Marc Rivero | McAfee ATR Team"
-		 hash = "3456f42bba032cff5518a5e5256cc433"
-		 hash = "ebc7741e6e0115c2cf992860a7c7eae7"
+		 reference = "https://www.mcafee.com/enterprise/en-us/assets/white-papers/wp-dissecting-operation-troy.pdf"
+		 date = "2013-06-23"
+		 hash = "93fbe550387be51f978d9b62fe8befdb94331ce7db4c2206c59e20a1e9a2c968"
+		 hash = "2ca6b7e9488c1e9f39392e696704ad3f2b82069e35bc8001d620024ebbf2d65a"
 	 
 	 strings:
 
@@ -14,5 +16,7 @@ rule troy_malware_campaign_pdb
 	 
 	 condition:
 
-	 	any of them
+	 	uint16(0) == 0x5a4d and
+ 		filesize < 500KB and
+ 		any of them
 }
