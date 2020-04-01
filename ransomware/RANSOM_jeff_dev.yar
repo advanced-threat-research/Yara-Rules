@@ -5,6 +5,8 @@ rule jeff_dev_ransomware {
       description = "Rule to detect Jeff Dev Ransomware"
       author = "Marc Rivero | McAfee ATR Team"
       reference = "https://www.bleepingcomputer.com/news/security/the-week-in-ransomware-august-31st-2018-devs-on-vacation/"
+      date = "2018-08-26"
+      hash = "386d4617046790f7f1fcf37505be4ffe51d165ba7cbd42324aed723288ca7e0a"
       
    strings:
 
@@ -15,5 +17,7 @@ rule jeff_dev_ransomware {
 
    condition:
 
-      ( uint16(0) == 0x5a4d and filesize < 5000KB ) and all of them
+      ( uint16(0) == 0x5a4d and
+      filesize < 5000KB ) and
+      all of them
 }
