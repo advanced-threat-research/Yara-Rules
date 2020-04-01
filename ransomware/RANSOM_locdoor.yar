@@ -5,6 +5,8 @@ rule locdoor_ransomware {
       description = "Rule to detect Locdoor/DryCry"
       author = "Marc Rivero | McAfee ATR Team"
       reference = "https://twitter.com/leotpsc/status/1036180615744376832"
+      date = "2018-09-02"
+      hash = "0000c55f7cdbbad9bacba0e79637696f3bfeb95a5f71dfa0b398bc77a207eb41"
 
    strings:
 
@@ -19,5 +21,7 @@ rule locdoor_ransomware {
 
    condition:
 
-      ( uint16(0) == 0x5a4d and filesize < 600KB ) and all of them 
+      ( uint16(0) == 0x5a4d and
+      filesize < 600KB ) and
+      all of them 
 }
