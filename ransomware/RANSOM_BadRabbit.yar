@@ -39,11 +39,15 @@ rule BadBunny {
 }
 
 rule badrabbit_ransomware {
+   
    meta:
+
       description = "Rule to detect Bad Rabbit Ransomware"
       author = "Marc Rivero | McAfee ATR Team"
+      reference = "https://securelist.com/bad-rabbit-ransomware/82851/"
 
    strings:
+   
       $s1 = "schtasks /Create /RU SYSTEM /SC ONSTART /TN rhaegal /TR \"%ws /C Start \\\"\\\" \\\"%wsdispci.exe\\\" -id %u && exit\"" fullword wide
       $s2 = "C:\\Windows\\System32\\rundll32.exe \"C:\\Windows\\" fullword wide
       $s3 = "process call create \"C:\\Windows\\System32\\rundll32.exe" fullword wide
@@ -73,5 +77,12 @@ rule badrabbit_ransomware {
 
 
    condition:
-      uint16(0) == 0x5a4d and filesize < 1000KB and (all of ($s*) and all of ($og*)) or all of ($oh*) or all of ($oj*) or all of ($ok*)
+
+      uint16(0) == 0x5a4d and
+      filesize < 1000KB and
+      (all of ($s*) and
+      all of ($og*)) or
+      all of ($oh*) or
+      all of ($oj*) or
+      all of ($ok*)
 }
