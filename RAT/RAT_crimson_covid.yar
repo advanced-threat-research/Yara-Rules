@@ -4,8 +4,10 @@ rule crimsonrat_covid {
 
       description = "Rule to detect the Crimson RAT samples used in the Covid Campaign"
       author = "Marc Rivero | McAfee ATR Team"
-      hash1 = "0ee399769a6e6e6d444a819ff0ca564ae584760baba93eff766926b1effe0010"
-      hash2 = "b67d764c981a298fa2bb14ca7faffc68ec30ad34380ad8a92911b2350104e748"
+      reference = "https://blog.malwarebytes.com/threat-analysis/2020/03/apt36-jumps-on-the-coronavirus-bandwagon-delivers-crimson-rat/"
+      date = "2020-04-16"
+      hash = "0ee399769a6e6e6d444a819ff0ca564ae584760baba93eff766926b1effe0010"
+      hash = "b67d764c981a298fa2bb14ca7faffc68ec30ad34380ad8a92911b2350104e748"
    
    strings:
 
@@ -26,5 +28,7 @@ rule crimsonrat_covid {
 
    condition:
 
-       uint16(0) == 0x5a4d and filesize < 30000KB and all of them 
+      uint16(0) == 0x5a4d and
+      filesize < 30000KB and
+      all of them 
 }
