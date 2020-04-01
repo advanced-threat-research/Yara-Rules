@@ -5,6 +5,8 @@ rule screenlocker_acroware {
       description = "Rule to detect the ScreenLocker Acroware"
       author = "Marc Rivero | McAfee ATR Team"
       reference = "https://www.bleepingcomputer.com/news/security/the-week-in-ransomware-august-31st-2018-devs-on-vacation/"
+      date = "2018-08-28"
+      hash = "f9efcfc5328e6502cbbbff752a940ac221e437d8732052fc265618f6a6ad72ae"
       
    strings:
 
@@ -15,5 +17,8 @@ rule screenlocker_acroware {
       $s5 = "webserver, after 72 hours thedecryption key will get removed and your personal" fullword ascii
       
    condition:
-      ( uint16(0) == 0x5a4d and filesize < 2000KB ) and all of them
+
+      ( uint16(0) == 0x5a4d and
+      filesize < 2000KB ) and
+      all of them
 }
