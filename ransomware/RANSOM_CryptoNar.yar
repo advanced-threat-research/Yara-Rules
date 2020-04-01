@@ -24,5 +24,8 @@ rule cryptonar_ransomware {
       $s14 = "CryptoNarDecryptor.Properties.Resources.resources" fullword ascii
       
    condition:
-      ( uint16(0) == 0x5a4d and filesize < 2000KB) and all of them 
+   
+      ( uint16(0) == 0x5a4d and
+      filesize < 2000KB) and
+      all of them 
 }
