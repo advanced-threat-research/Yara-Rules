@@ -1,9 +1,13 @@
-       rule milum_trojan
-    {
+rule milum_trojan {
+        
         meta:
 
             description = "Rule to detect Milum trojan from the Wildpressure operation"
             author      = "Marc Rivero | McAfee ATR Team"
+            reference = "https://securelist.com/wildpressure-targets-industrial-in-the-middle-east/96360/"
+            date = "2020-04-24"
+            hash = "5f8278119a4fe1156b494876ed5bde34993a094e09c35f5b2597ce32a88d518f"
+            hash = "86456ebf6b807e8253faf1262e7a2b673131c80174f6133b253b2e5f0da442a9"
 
         strings:
 
@@ -11,6 +15,9 @@
 
         condition:
         
-            uint16(0) == 0x5a4d and filesize < 2000KB and pe.imphash() == "548d9f5f1e74f34b85612667335d41f2" and all of them
+            uint16(0) == 0x5a4d and
+            filesize < 2000KB and
+            pe.imphash() == "548d9f5f1e74f34b85612667335d41f2" and
+            all of them
 }
 
