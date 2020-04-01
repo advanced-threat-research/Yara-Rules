@@ -4,6 +4,9 @@ rule loocipher_ransomware {
 
       description = "Rule to detect Loocipher ransomware"
       author = "Marc Rivero | McAfee ATR Team"
+      reference = "https://www.mcafee.com/blogs/other-blogs/mcafee-labs/analysis-of-loocipher-a-new-ransomware-family-observed-this-year/"
+      date = "2019-12-05"
+      hash = "7720aa6eb206e589493e440fec8690ceef9e70b5e6712a9fec9208c03cac7ff0"
       
    strings:
 
@@ -29,5 +32,10 @@ rule loocipher_ransomware {
       $s20 = "std::_Vector_const_iterator<class std::_Vector_val<struct std::_Simple_types<class CryptoPP::Integer> > >::_Compat" fullword wide
 
    condition:
-      ( uint16(0) == 0x5a4d and filesize < 17000KB and ( 1 of ($x*) and 4 of them ) ) or ( all of them )
+
+      ( uint16(0) == 0x5a4d and
+      filesize < 17000KB and
+      ( 1 of ($x*) and
+      4 of them ) ) or
+      ( all of them )
 }
