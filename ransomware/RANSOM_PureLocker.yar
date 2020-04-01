@@ -1,9 +1,11 @@
-rule purelocker_ransomware
-    {
+rule purelocker_ransomware {
+
         meta:
               
               description = "Rule to detect PureLocker ransomware based on binary sequences"
               author = "Marc Rivero | McAfee ATR Team"
+              reference = "https://www.pandasecurity.com/mediacenter/security/purelocker-ransomware-servers/"
+              date = "2019-11-13"
               
         strings:
         
@@ -11,5 +13,7 @@ rule purelocker_ransomware
         
         condition:
         
-          uint16(0) == 0x5a4d and filesize < 300KB and all of them
+          uint16(0) == 0x5a4d and
+          filesize < 300KB and
+          all of them
     }
