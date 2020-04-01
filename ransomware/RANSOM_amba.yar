@@ -4,10 +4,12 @@ rule amba_ransomware {
 
       description = "Rule to detect Amba Ransomware"
       author = "Marc Rivero | McAfee ATR Team"
-      hash1 = "7c08cdf9f4e8be34ef6af5b53794163023c2b013f34c4134b8922f42933012a0"
-      hash2 = "73155a084aac8434bb0779a0b88e97d5cf2d0760e9d25f2f42346d3e06cdaac2"
-      hash3 = "ec237bc926ce9008a219b8b30882f3ac18531bd314ee852369fc712368c6acd5"
-      hash4 = "b9b6045a45dd22fcaf2fc13d39eba46180d489cb4eb152c87568c2404aecac2f"
+      reference = "https://www.enigmasoftware.com/ambaransomware-removal/"
+      date = "2017-07-03"
+      hash = "7c08cdf9f4e8be34ef6af5b53794163023c2b013f34c4134b8922f42933012a0"
+      hash = "73155a084aac8434bb0779a0b88e97d5cf2d0760e9d25f2f42346d3e06cdaac2"
+      hash = "ec237bc926ce9008a219b8b30882f3ac18531bd314ee852369fc712368c6acd5"
+      hash = "b9b6045a45dd22fcaf2fc13d39eba46180d489cb4eb152c87568c2404aecac2f"
 
    strings:
 
@@ -29,6 +31,9 @@ rule amba_ransomware {
       $s17 = "LWVuY3J5cHQgcHQzIC1wIA==" 
 
    condition:
-      ( uint16(0) == 0x5a4d and filesize < 3000KB and ( 8 of them )
-      ) or ( all of them )
+   
+      ( uint16(0) == 0x5a4d and
+      filesize < 3000KB and
+      ( 8 of them )) or
+      ( all of them )
 }
