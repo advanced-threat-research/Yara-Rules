@@ -2,9 +2,11 @@ rule unpacked_shiva_ransomware {
 
    meta:
 
-      description = "Rule to detect an unpacked sample of Shiva ransopmw"
+      description = "Rule to detect an unpacked sample of Shiva ransomware"
       author = "Marc Rivero | McAfee ATR Team"
       reference = "https://twitter.com/malwrhunterteam/status/1037424962569732096"
+      date = "2018-09-05"
+      hash = "299bebcb18e218254960ef96c2e65a4dc1945dcdfe9fc68550022f99a474f56d"
     
    strings:
 
@@ -24,5 +26,7 @@ rule unpacked_shiva_ransomware {
    
    condition:
 
-      ( uint16(0) == 0x5a4d and filesize < 800KB ) and all of them 
+      ( uint16(0) == 0x5a4d and
+      filesize < 800KB ) and
+      all of them 
 }
