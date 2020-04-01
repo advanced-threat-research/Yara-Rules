@@ -5,6 +5,8 @@ rule karkoff_dnspionaje {
       description = "Rule to detect the Karkoff malware"
       author = "Marc Rivero | McAfee ATR Team"
       reference = "https://blog.talosintelligence.com/2019/04/dnspionage-brings-out-karkoff.html"
+      date = "2019-04-23"
+      hash = "5b102bf4d997688268bab45336cead7cdf188eb0d6355764e53b4f62e1cdf30c"
       
    strings:
    
@@ -16,5 +18,8 @@ rule karkoff_dnspionaje {
       $s6 = "https://www.newtonsoft.com/json 0" fullword ascii
       
    condition:
-      uint16(0) == 0x5a4d and filesize < 1000KB and all of them
+   
+      uint16(0) == 0x5a4d and
+      filesize < 1000KB 
+      and all of them
 }
