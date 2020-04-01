@@ -4,6 +4,9 @@ rule kraken_cryptor_ransomware_loader {
 
       description = "Rule to detect the Kraken Cryptor Ransomware loader"
       author = "Marc Rivero | McAfee ATR Team"
+      reference = "https://www.mcafee.com/blogs/other-blogs/mcafee-labs/fallout-exploit-kit-releases-the-kraken-ransomware-on-its-victims/"
+      date = "2018-09-30"
+      hash = "564154a2e3647318ca40a5ffa68d06b1bd40b606cae1d15985e3d15097b512cd"
 
    strings:
 
@@ -13,10 +16,12 @@ rule kraken_cryptor_ransomware_loader {
       $s4 = "KRAKEN DECRYPTOR" ascii
       $s5 = "UNIQUE KEY" fullword ascii
 
-
    condition:
 
-      ( uint16(0) == 0x5a4d and filesize < 600KB ) and $pdb or all of ($s*)
+       uint16(0) == 0x5a4d and 
+       filesize < 600KB  and 
+       $pdb or 
+       all of ($s*)
 }
 
 rule kraken_cryptor_ransomware {
@@ -25,6 +30,9 @@ rule kraken_cryptor_ransomware {
 
       description = "Rule to detect the Kraken Cryptor Ransomware"
       author = "Marc Rivero | McAfee ATR Team"
+      reference = "https://www.mcafee.com/blogs/other-blogs/mcafee-labs/fallout-exploit-kit-releases-the-kraken-ransomware-on-its-victims/"
+      date = "2018-09-30"
+      hash = "564154a2e3647318ca40a5ffa68d06b1bd40b606cae1d15985e3d15097b512cd"
 
    strings:
      
@@ -38,7 +46,11 @@ rule kraken_cryptor_ransomware {
   
    condition:
 
-      ( uint16(0) == 0x5a4d and filesize < 600KB ) and all of ($fw*) or all of ($s*) or $uac
+      uint16(0) == 0x5a4d and
+      filesize < 600KB and
+      all of ($fw*) or
+      all of ($s*) or
+      $uac
 }
 
 rule ransom_note_kraken_cryptor_ransomware {
@@ -47,6 +59,8 @@ rule ransom_note_kraken_cryptor_ransomware {
 
       description = "Rule to detect the ransom note delivered by Kraken Cryptor Ransomware"
       author = "Marc Rivero | McAfee ATR Team"
+      reference = "https://www.mcafee.com/blogs/other-blogs/mcafee-labs/fallout-exploit-kit-releases-the-kraken-ransomware-on-its-victims/"
+      date = "2018-09-30"
 
    strings:
 
@@ -70,7 +84,10 @@ rule ransom_note_kraken_cryptor_ransomware {
       $s18 = "DON'T USE THIRD PARTY, PUBLIC TOOLS/SOFTWARE TO DECRYPT YOUR FILES, THIS CAUSE DAMAGE YOUR FILES PERMANENTLY." fullword ascii
       $s19 = "https://en.wikipedia.org/wiki/Bitcoin" fullword ascii
       $s20 = "Please send your message with same subject to both address." fullword ascii
+   
    condition:
 
-      ( uint16(0) == 0x4120 and filesize < 9KB ) and all of them 
+      uint16(0) == 0x4120 and
+      filesize < 9KB and
+      all of them 
 }
