@@ -3,6 +3,8 @@ rule bitpaymer_ransomware {
    meta:
       description = "Rule to detect BitPaymer Ransomware"
       author = "Marc Rivero | McAfee ATR Team"
+      reference = "https://www.mcafee.com/blogs/other-blogs/mcafee-labs/spanish-mssp-targeted-by-bitpaymer-ransomware/"
+      date = "2019-11-08"
       
    strings:
 
@@ -37,5 +39,28 @@ rule bitpaymer_ransomware {
       $oh2 = { 56 52 ba 00 10 fe 00 8b f1 e8 28 63 00 00 8b c6 }
 
    condition:
-      (uint16(0) == 0x5a4d and filesize < 1000KB) and ($s1 and all of ($op*)) or ($pdb and all of ($oj*)) or ($t1 and all of ($ok*)) or ($random and all of ($oi*)) or ($random and all of ($ou*)) or ($random and all of ($oa*) and $ou0) or ($random and all of ($oy*)) or ($random and all of ($oh*)) or ($random and $ou0) or ($random and $oi1)
+
+      (uint16(0) == 0x5a4d and
+      filesize < 1000KB) and
+      ($s1 and
+      all of ($op*)) or
+      ($pdb and
+      all of ($oj*)) or
+      ($t1 and
+      all of ($ok*)) or
+      ($random and
+      all of ($oi*)) or
+      ($random and
+      all of ($ou*)) or
+      ($random and
+      all of ($oa*) and
+      $ou0) or
+      ($random and
+      all of ($oy*)) or
+      ($random and
+      all of ($oh*)) or
+      ($random and
+      $ou0) or
+      ($random and
+      $oi1)
 }
