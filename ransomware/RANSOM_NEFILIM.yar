@@ -4,6 +4,9 @@ rule nefilim_ransomware {
 
       description = "Rule to detect Nefilim ransomware"
       author = "Marc Rivero | McAfee ATR Team"
+      reference = "https://www.bleepingcomputer.com/news/security/new-nefilim-ransomware-threatens-to-release-victims-data/"
+      date = "2020-03-17"
+      hash = "5ab834f599c6ad35fcd0a168d93c52c399c6de7d1c20f33e25cb1fdb25aec9c6"
 
    strings:
 
@@ -18,5 +21,8 @@ rule nefilim_ransomware {
       
    condition:
 
-      uint16(0) == 0x5a4d and filesize < 200KB and all of ($s*) or all of ($op*) 
+      uint16(0) == 0x5a4d and
+      filesize < 200KB and
+      all of ($s*) or
+      all of ($op*) 
 }
