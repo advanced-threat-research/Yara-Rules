@@ -1,109 +1,129 @@
-rule apt_nix_elf_derusbi
-{
+rule apt_nix_elf_derusbi {
 
     meta:
         
       description = "Rule to detect the APT Derusbi ELF file"
       author = "Marc Rivero | McAfee ATR Team"
+      reference = "https://attack.mitre.org/software/S0021/"
+      date = "2017-05-31"
 
     strings:
-        $ = "LxMain"
-        $ = "execve"
-        $ = "kill"
-        $ = "cp -a %s %s"
-        $ = "%s &"
-        $ = "dbus-daemon"
-        $ = "--noprofile"
-        $ = "--norc"
-        $ = "TERM=vt100"
-        $ = "/proc/%u/cmdline"
-        $ = "loadso"
-        $ = "/proc/self/exe"
-        $ = "Proxy-Connection: Keep-Alive"
-        $ = "Connection: Keep-Alive"
-        $ = "CONNECT %s"
-        $ = "HOST: %s:%d"
-        $ = "User-Agent: Mozilla/4.0"
-        $ = "Proxy-Authorization: Basic %s"
-        $ = "Server: Apache"
-        $ = "Proxy-Authenticate"
-        $ = "gettimeofday"
-        $ = "pthread_create"
-        $ = "pthread_join"
-        $ = "pthread_mutex_init"
-        $ = "pthread_mutex_destroy"
-        $ = "pthread_mutex_lock"
-        $ = "getsockopt"
-        $ = "socket"
-        $ = "setsockopt"
-        $ = "select"
-        $ = "bind"
-        $ = "shutdown"
-        $ = "listen"
-        $ = "opendir"
-        $ = "readdir"
-        $ = "closedir"
-        $ = "rename"
+
+        $s1 = "LxMain"
+        $s2 = "execve"
+        $s3 = "kill"
+        $s4 = "cp -a %s %s"
+        $s5 = "%s &"
+        $s6 = "dbus-daemon"
+        $s7 = "--noprofile"
+        $s8 = "--norc"
+        $s9 = "TERM=vt100"
+        $s10 = "/proc/%u/cmdline"
+        $s11 = "loadso"
+        $s12 = "/proc/self/exe"
+        $s13 = "Proxy-Connection: Keep-Alive"
+        $s14 = "Connection: Keep-Alive"
+        $s15 = "CONNECT %s"
+        $s16 = "HOST: %s:%d"
+        $s17 = "User-Agent: Mozilla/4.0"
+        $s18 = "Proxy-Authorization: Basic %s"
+        $s19 = "Server: Apache"
+        $s20 = "Proxy-Authenticate"
+        $s21 = "gettimeofday"
+        $s22 = "pthread_create"
+        $s23 = "pthread_join"
+        $s24 = "pthread_mutex_init"
+        $s25 = "pthread_mutex_destroy"
+        $s26 = "pthread_mutex_lock"
+        $s27 = "getsockopt"
+        $s28 = "socket"
+        $s29 = "setsockopt"
+        $s30 = "select"
+        $s31 = "bind"
+        $s32 = "shutdown"
+        $s33 = "listen"
+        $s34 = "opendir"
+        $s35 = "readdir"
+        $s36 = "closedir"
+        $s37 = "rename"
 
     condition:
-        (uint32(0) == 0x4464c457f) and (all of them)
+
+        (uint32(0) == 0x4464c457f) and
+        filesize < 200KB and
+        all of them
 }
 
-rule apt_nix_elf_derusbi_kernelModule
-{
+rule apt_nix_elf_derusbi_kernelModule {
 
     meta:
+
       description = "Rule to detect the Derusbi ELK Kernel module"
       author = "Marc Rivero | McAfee ATR Team"
+      reference = "https://attack.mitre.org/software/S0021/"
+      date = "2017-05-31"
 
     strings:
-        $ = "__this_module"
-        $ = "init_module"
-        $ = "unhide_pid"
-        $ = "is_hidden_pid"
-        $ = "clear_hidden_pid"
-        $ = "hide_pid"
-        $ = "license"
-        $ = "description"
-        $ = "srcversion="
-        $ = "depends="
-        $ = "vermagic="
-        $ = "current_task"
-        $ = "sock_release"
-        $ = "module_layout"
-        $ = "init_uts_ns"
-        $ = "init_net"
-        $ = "init_task"
-        $ = "filp_open"
-        $ = "__netlink_kernel_create"
-        $ = "kfree_skb"
+
+        $s1 = "__this_module"
+        $s2 = "init_module"
+        $s3 = "unhide_pid"
+        $s4 = "is_hidden_pid"
+        $s5 = "clear_hidden_pid"
+        $s6 = "hide_pid"
+        $s7 = "license"
+        $s8 = "description"
+        $s9 = "srcversion="
+        $s10 = "depends="
+        $s11 = "vermagic="
+        $s12 = "current_task"
+        $s13 = "sock_release"
+        $s14 = "module_layout"
+        $s15 = "init_uts_ns"
+        $s16 = "init_net"
+        $s17 = "init_task"
+        $s18 = "filp_open"
+        $s19 = "__netlink_kernel_create"
+        $s20 = "kfree_skb"
 
     condition:
-        (uint32(0) == 0x4464c457f) and (all of them)
+
+        (uint32(0) == 0x4464c457f) and
+        filesize < 200KB and
+        all of them
 }
 
-rule apt_nix_elf_Derusbi_Linux_SharedMemCreation
-{
+rule apt_nix_elf_Derusbi_Linux_SharedMemCreation {
 
     meta:
+
       description = "Rule to detect Derusbi Linux Shared Memory creation"
       author = "Marc Rivero | McAfee ATR Team"
+      reference = "https://attack.mitre.org/software/S0021/"
+      date = "2017-05-31"
 
     strings:
+
         $byte1 = { B6 03 00 00 ?? 40 00 00 00 ?? 0D 5F 01 82 }
 
     condition:
-        (uint32(0) == 0x464C457F) and (any of them)
+
+        (uint32(0) == 0x464C457F) and
+        filesize < 200KB and
+        all of them
 }
 
-rule apt_nix_elf_Derusbi_Linux_Strings
-{
+rule apt_nix_elf_Derusbi_Linux_Strings {
 
     meta:
+
       description = "Rule to detect APT Derusbi Linux Strings"
       author = "Marc Rivero | McAfee ATR Team"
+      reference = "https://attack.mitre.org/software/S0021/"
+      date = "2017-05-31"
 
     strings:
+
         $a1 = "loadso" wide ascii fullword
         $a2 = "\nuname -a\n\n" wide ascii
         $a3 = "/dev/shm/.x11.id" wide ascii
@@ -120,17 +140,28 @@ rule apt_nix_elf_Derusbi_Linux_Strings
         $c2 = "/tmp/1408.log" wide ascii fullword
 
     condition:
-        uint32(0) == 0x464C457F and ((1 of ($a*) and 4 of ($b*)) or (1 of ($a*) and 1 of ($c*)) or 2 of ($a*) or all of ($b*))
+
+        uint32(0) == 0x464C457F and
+        filesize < 200KB and
+        ((1 of ($a*) and
+        4 of ($b*)) or
+        (1 of ($a*) and
+        1 of ($c*)) or
+        2 of ($a*) or
+        all of ($b*))
 }
 
-rule apt_win_exe_trojan_derusbi
-{
+rule apt_win_exe_trojan_derusbi {
 
    meta:
+
       description = "Rule to detect Derusbi Trojan"
       author = "Marc Rivero | McAfee ATR Team"
+      reference = "https://attack.mitre.org/software/S0021/"
+      date = "2017-05-31"
 
    strings:
+
         $sa_1 = "USB" wide ascii
         $sa_2 = "RAM" wide ascii
         $sa_3 = "SHARE" wide ascii
@@ -177,6 +208,15 @@ rule apt_win_exe_trojan_derusbi
         $se_6 = "XXXXXXXXXXXXXXX" wide ascii
 
    condition:
-      (uint16(0) == 0x5A4D) and ( (all of ($sa_*)) or ((13 of ($sa_*)) and ( (5 of ($sb_*)) or (3 of ($sc_*)) or (all of ($sd_*)) or ( (1 of ($sc_*)) and (all of ($se_*)) ) ) ) )
+      
+      (uint16(0) == 0x5A4D) and
+      filesize < 200KB and
+      ( (all of ($sa_*)) or
+      ((13 of ($sa_*)) and
+      ( (5 of ($sb_*)) or
+      (3 of ($sc_*)) or
+      (all of ($sd_*)) or
+      ( (1 of ($sc_*)) and
+      (all of ($se_*)) ) ) ) )
 }
 

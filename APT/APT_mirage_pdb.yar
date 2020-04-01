@@ -1,17 +1,22 @@
-rule Mirage_PDB
-{
-		 meta:
+rule apt_mirage_pdb {
+		 
+	meta:
+	
 		 description = "Rule to detect Mirage samples based on PDB"
 		 author = "Marc Rivero | McAfee ATR Team"
-		 hash = "5FA26F410D0133F4152EA78DF3978C22"
-		 hash = "1045E26819FF782015202838E2C609F7"
+		 reference = "https://www.secureworks.com/research/the-mirage-campaign"
+		 date = "2012-09-18"
+		 hash = "f2fd3f732925ff1601df41b8d7816a9b027f4a217ee7031688ded151d656a385"
+		 hash = "0107a12f05bea4040a467dd5bc5bd130fd8a4206a09135d452875da89f121019"
 		 
-	 strings:
+	strings:
 
 		 $pdb = "\\MF-v1.2\\Server\\Debug\\Server.pdb"
 		 $pdb1 = "\\fox_1.2 20110307\\MF-v1.2\\Server\\Release\\MirageFox_Server.pdb"
 
 	condition:
 
-		any of them
+		uint16(0) == 0x5a4d and
+ 		filesize < 150KB and
+ 		any of them
 }

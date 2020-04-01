@@ -1,9 +1,11 @@
-rule ixeshe_bled_malware_pdb
-{
+rule ixeshe_bled_malware_pdb {
 	 meta:
+
 		 description = "Rule to detect Ixeshe_bled malware based on PDB"
 		 author = "Marc Rivero | McAfee ATR Team"
-		 hash = "E658B571FD1679DABFC2232991F712B0"
+		 reference = "https://attack.mitre.org/software/S0015/"
+		 date "2012-05-30"
+		 hash = "d1be51ef9a873de85fb566d157b034234377a4a1f24dfaf670e6b94b29f35482"
 		 
 	 strings:
 
@@ -11,5 +13,7 @@ rule ixeshe_bled_malware_pdb
 
 	 condition:
 
-	 	any of them
+	 	uint16(0) == 0x5a4d and 
+	    filesize < 200KB and 
+	    any of them
 }
