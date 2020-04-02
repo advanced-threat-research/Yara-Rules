@@ -5,7 +5,7 @@ rule apt_hikit_rootkit {
 		 description = "Rule to detect the rootkit hikit based on PDB"
 		 author = "Marc Rivero | McAfee ATR Team"
 		 reference = "https://www.fireeye.com/blog/threat-research/2012/08/hikit-rootkit-advanced-persistent-attack-techniques-part-1.html"
-		 date "2012-08-20"
+		 date = "2012-08-20"
 		 
 	 strings:
 
@@ -16,7 +16,7 @@ rule apt_hikit_rootkit {
 
 	 condition:
 
-		  uint16(0) == 0x5a4d and 
+	      uint16(0) == 0x5a4d and 
 	      filesize < 100KB and 
 	      any of them
 }
