@@ -6,6 +6,7 @@ rule chimera_recordedtv_modified {
 		author = "Marc Rivero | McAfee ATR Team"
 		date = "2020-04-21"
 		reference = "https://cycraft.com/download/%5BTLP-White%5D20200415%20Chimera_V4.1.pdf"
+		reference = "https://medium.com/@cycraft_corp/taiwan-high-tech-ecosystem-targeted-by-foreign-apt-group-5473d2ad8730"
 		hash = "66f13964c87fc6fe093a9d8cc0de0bf2b3bdaea9564210283fdb97a1dde9893b"
 	
 	
