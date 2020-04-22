@@ -15,9 +15,9 @@ rule chimera_recordedtv_modified {
 		// Modified byte
 		$byte = { C0 0E 5B C3 }
 		$s1 = "Encrypted file:  CRC failed in %s (password incorrect ?)" fullword wide
-    $s2 = "EBorland C++ - Copyright 1999 Inprise Corporation" fullword ascii
-    $s3 = " MacOS file type:  %c%c%c%c  ; " fullword wide
-    $s4 = "rar.lng" fullword ascii
+    		$s2 = "EBorland C++ - Copyright 1999 Inprise Corporation" fullword ascii
+   		$s3 = " MacOS file type:  %c%c%c%c  ; " fullword wide
+		$s4 = "rar.lng" fullword ascii
 
 	condition:
 		
