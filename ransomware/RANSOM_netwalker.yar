@@ -43,3 +43,85 @@ rule netwalker_signed {
          pe.signatures[i].serial == "17:16:bb:93:fb:a9:a2:41:ba:a8:2e:c7:5e:ff:0c" or
          pe.signatures[i].thumbprint == "a4:28:e9:4a:61:3a:1f:cf:ff:08:bf:e7:61:51:64:31:1a:6f:87:bc")
 }
+
+rule Netwalker {
+    meta:
+        description = "Rule based on code overlap in RagnarLocker ransomware"
+        author = "McAfee ATR team"
+        date = "2020-06-14"
+        malware_type = "ransomware"
+        actor_type = "CyberCrime"
+        actor = "Unknown"
+  strings:
+    $0 = {C88BF28B4330F76F3803C88B434813F2F76F2003C88B433813F2F76F3003C88B434013F2F76F2803C88B432813F2F76F4003C8894D6813F289756C8B4338F76F388BC88BF28B4328F76F4803C88B434813F2F76F2803C88B433013F2F76F400FA4CE}
+    $1 = {89542414895424108BEA8BDA8BFA423C22747C3C5C75588A023C5C744F3C2F744B3C2274473C6275078D5702B008EB3F3C6675078D5302B00CEB343C6E75078D5502B00AEB293C72750B8B542410B00D83C202EB1A3C74750B8B542414B00983C2}
+    $2 = {C8894D7013F28975748B4338F76F408BC88BF28B4340F76F3803C88B433013F2F76F4803C88B434813F2F76F3003C8894D7813F289757C8B4348F76F388BC88BF28B4338F76F4803C88B434013F2F76F400FA4CE}
+    $3 = {C07439473C2F75E380FB2A74DEEB2D8D4ABF8D422080F9190FB6D80FB6C28AD60F47D88AC6042080EA410FB6C880FA190FB6C60F47C83ACB754B46478A1684D2}
+    $4 = {8B433013F2F76F0803C88B432013F2F76F1803C88B0313F2F76F3803C88B430813F2F76F3003C88B433813F2F72F03C8894D3813F289753C8B4338F76F088BC8}
+    $5 = {F73101320E32213234329832E3320C332D334733643383339133A833BD33053463347C34543564358335AE36C3362937E9379A39BA390A3A203A443A183B2B3B}
+    $6 = {8B431813F2F76F4803C88B432813F2F76F3803C88B434013F2F76F200FA4CE0103C903C88B432013F2F76F4003C88B433013F2F76F3003C8894D6013F2897564}
+  condition:
+    uint16(0) == 0x5A4D and
+    uint32(uint32(0x3C)) == 0x00004550 and 
+    all of them
+    }
+    
+rule win_netwalker_reflective_dll_injection_decoded {
+    meta:
+        author = "McAfee ATR Team"
+        date = "2020-05-28"
+        Description = "Rule to detect Reflective DLL Injection Powershell Script dropping Netwalker, after hexadecimal decoded and xor decrypted "
+        report_reference = "https://blog.trendmicro.com/trendlabs-security-intelligence/netwalker-fileless-ransomware-injected-via-reflective-loading/ | https://news.sophos.com/en-us/2020/05/27/netwalker-ransomware-tools-give-insight-into-threat-actor/"
+        malware_type = "ransomware"
+        actor_type = "CyberCrime"
+        actor = "Unknown"
+        hash = "fd29001b8b635e6c51270788bab7af0bb5adba6917c278b93161cfc2bc7bd6ae"
+        strings:
+        // API addresses of the functions the script needs from kernel32.dll
+        $api0 = { 5b 44 6c 6c 49 6d 70 6f 72 74 28 22 6b 65 72 6e 65 6c 33 32 2e 64 6c 6c 22 2c 53 65 74 4c 61 73 74 45 72 72 6f 72 20 3d 20 74 72 75 65 2c 20 45 6e 74 72 79 50 6f 69 6e 74 20 3d 20 22 56 69 72 74 75 61 6c 41 6c 6c 6f 63 22 29 5d }
+        // [DllImport("kernel32.dll",SetLastError = true, EntryPoint = "VirtualAlloc")]
+        $api1 = { 5b 44 6c 6c 49 6d 70 6f 72 74 28 22 6b 65 72 6e 65 6c 33 32 2e 64 6c 6c 22 2c 53 65 74 4c 61 73 74 45 72 72 6f 72 20 3d 20 74 72 75 65 2c 45 6e 74 72 79 50 6f 69 6e 74 20 3d 20 22 47 65 74 50 72 6f 63 41 64 64 72 65 73 73 22 29 5d }
+        // [DllImport("kernel32.dll",SetLastError = true,EntryPoint = "GetProcAddress")]
+        $api2 = { 5b 44 6c 6c 49 6d 70 6f 72 74 28 22 6b 65 72 6e 65 6c 33 32 2e 64 6c 6c 22 2c 53 65 74 4c 61 73 74 45 72 72 6f 72 20 3d 20 74 72 75 65 2c 45 6e 74 72 79 50 6f 69 6e 74 20 3d 20 22 4c 6f 61 64 4c 69 62 72 61 72 79 41 22 29 5d }
+        // [DllImport("kernel32.dll",SetLastError = true,EntryPoint = "LoadLibraryA")]
+        $api3 = { 5b 44 6c 6c 49 6d 70 6f 72 74 28 22 6b 65 72 6e 65 6c 33 32 2e 64 6c 6c 22 2c 53 65 74 4c 61 73 74 45 72 72 6f 72 20 3d 20 74 72 75 65 2c 45 6e 74 72 79 50 6f 69 6e 74 20 3d 20 22 57 72 69 74 65 50 72 6f 63 65 73 73 4d 65 6d 6f 72 79 22 29 5d }
+        // [DllImport("kernel32.dll",SetLastError = true,EntryPoint = "WriteProcessMemory")]
+        $api4 = { 5b 44 6c 6c 49 6d 70 6f 72 74 28 22 6b 65 72 6e 65 6c 33 32 2e 64 6c 6c 22 2c 53 65 74 4c 61 73 74 45 72 72 6f 72 20 3d 20 74 72 75 65 2c 45 6e 74 72 79 50 6f 69 6e 74 20 3d 20 22 56 69 72 74 75 61 6c 46 72 65 65 22 29 5d }
+        // [DllImport("kernel32.dll",SetLastError = true,EntryPoint = "VirtualFree")]
+        $api5 = { 5b 44 6c 6c 49 6d 70 6f 72 74 28 22 6b 65 72 6e 65 6c 33 32 2e 64 6c 6c 22 2c 53 65 74 4c 61 73 74 45 72 72 6f 72 20 3d 20 74 72 75 65 2c 45 6e 74 72 79 50 6f 69 6e 74 20 3d 20 22 47 65 74 43 75 72 72 65 6e 74 50 72 6f 63 65 73 73 22 29 5d }
+        // [DllImport("kernel32.dll",SetLastError = true,EntryPoint = "GetCurrentProcess")]
+        $api6 = { 5b 44 6c 6c 49 6d 70 6f 72 74 28 22 6b 65 72 6e 65 6c 33 32 2e 64 6c 6c 22 2c 53 65 74 4c 61 73 74 45 72 72 6f 72 20 3d 20 74 72 75 65 2c 45 6e 74 72 79 50 6f 69 6e 74 20 3d 20 22 43 6c 6f 73 65 48 61 6e 64 6c 65 22 29 5d }
+        // [DllImport("kernel32.dll",SetLastError = true,EntryPoint = "CloseHandle")]
+        $api7 = { 5b 44 6c 6c 49 6d 70 6f 72 74 28 22 6b 65 72 6e 65 6c 33 32 2e 64 6c 6c 22 2c 20 53 65 74 4c 61 73 74 45 72 72 6f 72 3d 74 72 75 65 2c 45 6e 74 72 79 50 6f 69 6e 74 20 3d 20 22 56 69 72 74 75 61 6c 41 6c 6c 6f 63 45 78 22 29 5d }
+        // [DllImport("kernel32.dll", SetLastError=true,EntryPoint = "VirtualAllocEx")]
+        $api8 = { 5b 44 6c 6c 49 6d 70 6f 72 74 28 22 6b 65 72 6e 65 6c 33 32 2e 64 6c 6c 22 2c 20 53 65 74 4c 61 73 74 45 72 72 6f 72 3d 74 72 75 65 2c 45 6e 74 72 79 50 6f 69 6e 74 20 3d 20 22 56 69 72 74 75 61 6c 50 72 6f 74 65 63 74 45 78 22 29 5d }
+        // [DllImport("kernel32.dll", SetLastError=true,EntryPoint = "VirtualProtectEx")]
+        $api9 = { 5b 44 6c 6c 49 6d 70 6f 72 74 28 22 6b 65 72 6e 65 6c 33 32 2e 64 6c 6c 22 2c 20 53 65 74 4c 61 73 74 45 72 72 6f 72 20 3d 20 74 72 75 65 2c 45 6e 74 72 79 50 6f 69 6e 74 20 3d 20 22 4f 70 65 6e 50 72 6f 63 65 73 73 22 29 5d }
+        // [DllImport("kernel32.dll", SetLastError = true,EntryPoint = "OpenProcess")]
+        $api10 = { 5b 44 6c 6c 49 6d 70 6f 72 74 28 22 6b 65 72 6e 65 6c 33 32 2e 64 6c 6c 22 2c 45 6e 74 72 79 50 6f 69 6e 74 20 3d 20 22 43 72 65 61 74 65 52 65 6d 6f 74 65 54 68 72 65 61 64 22 29 5d }
+        // [DllImport("kernel32.dll",EntryPoint = "CreateRemoteThread")]
+        // Other Artifacts 
+        $artifact0 = { 5b 44 6c 6c 49 6d 70 6f 72 74 28 22 6b 65 72 6e 65 6c 33 32 2e 64 6c 6c 22 2c 45 6e 74 72 79 50 6f 69 6e 74 20 3d 20 22 43 72 65 61 74 65 52 65 6d 6f 74 65 54 68 72 65 61 64 22 29 5d }
+        // Get-WmiObject Win32_Shadowcopy | ForEach-Object {$_.Delete();} | Out-Null
+        $artifact1 = { 53 79 73 74 65 6d 2e 52 75 6e 74 69 6d 65 2e 49 6e 74 65 72 6f 70 53 65 72 76 69 63 65 73 2e 4d 61 72 73 68 61 6c 5d 3a 3a 50 74 72 54 6f 53 74 72 75 63 74 75 72 65 }
+        // System.Runtime.InteropServices.Marshal]::PtrToStructure
+        $artifact2 = { 53 79 73 74 65 6d 2e 52 75 6e 74 69 6d 65 2e 49 6e 74 65 72 6f 70 53 65 72 76 69 63 65 73 2e 4d 61 72 73 68 61 6c 5d 3a 3a 52 65 61 64 49 6e 74 31 36 }
+        // System.Runtime.InteropServices.Marshal]::ReadInt16
+        $artifact3 = { 65 6e 76 3a 57 49 4e 44 49 52 5c 73 79 73 77 6f 77 36 34 5c 77 69 6e 64 6f 77 73 70 6f 77 65 72 73 68 65 6c 6c 5c 76 31 2e 30 5c 70 6f 77 65 72 73 68 65 6c 6c 2e 65 78 65 22 20 2d 4e 6f 6e 49 6e 74 65 72 61 63 74 69 76 65 20 2d 4e 6f 50 72 6f 66 69 6c 65 20 2d 65 78 65 63 20 62 79 70 61 73 73}
+        // env:WINDIR\syswow64\windowspowershell\v1.0\powershell.exe" -NonInteractive -NoProfile -exec bypass
+        $artifact4 = { 65 6e 76 3a 57 49 4e 44 49 52 5c 73 79 73 77 6f 77 36 34 5c 77 69 6e 64 6f 77 73 70 6f 77 65 72 73 68 65 6c 6c 5c 76 31 2e 30 5c 70 6f 77 65 72 73 68 65 6c 6c 2e 65 78 65 22 20 2d 4e 6f 6e 49 6e 74 65 72 61 63 74 69 76 65 20 2d 4e 6f 50 72 6f 66 69 6c 65 20 2d 65 78 65 63 20 62 79 70 61 73 73 20 2d 66 69 6c 65}
+        // env:WINDIR\syswow64\windowspowershell\v1.0\powershell.exe" -NonInteractive -NoProfile -exec bypass -file
+        $artifact5 = {5b 50 61 72 61 6d 65 74 65 72 28 50 6f 73 69 74 69 6f 6e 20 3d 20 30 20 2c 20 4d 61 6e 64 61 74 6f 72 79}
+        // [Parameter(Position = 0 , Mandatory
+        $artifact6 = {5b 50 61 72 61 6d 65 74 65 72 28 50 6f 73 69 74 69 6f 6e 20 3d 20 31 20 2c 20 4d 61 6e 64 61 74 6f 72 79}
+        // [Parameter(Position = 1 , Mandatory
+        $artifact7 = {2d 45 78 65 63 75 74 69 6f 6e 50 6f 6c 69 63 79 20 42 79 50 61 73 73 20 2d 4e 6f 4c 6f 67 6f 20 2d 4e 6f 6e 49 6e 74 65 72 61 63 74 69 76 65 20 2d 4e 6f 50 72 6f 66 69 6c 65 20 2d 4e 6f 45 78 69 74}
+        // -ExecutionPolicy ByPass -NoLogo -NonInteractive -NoProfile -NoExit
+        $artifact8 = {72 65 74 75 72 6e 20 5b 42 69 74 43 6f 6e 76 65 72 74 65 72 5d 3a 3a 54 6f 49 6e 74 36 34}
+        // return [BitConverter]::ToInt64
+        condition:
+            6 of ($api*) or
+            ( 
+                (3 of ($artifact*))
+            )
+}
