@@ -1,4 +1,4 @@
-rule RANSOM_wastedlocker.yar
+rule RANSOM_wastedlocker
 {
     meta:
     
