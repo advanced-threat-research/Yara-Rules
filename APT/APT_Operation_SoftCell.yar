@@ -6,8 +6,14 @@ rule shadowspawn_utility {
 
       description = "Rule to detect ShadowSpawn utility used in the SoftCell operation"
       author = "Marc Rivero | McAfee ATR Team"
-      reference = "https://www.cybereason.com/blog/operation-soft-cell-a-worldwide-campaign-against-telecommunications-providers"
       date = "2019-06-25"
+      rule_version = "v1"
+      malware_type = "utility"
+      malware_family = "Trojan:W32/ShadowSpawn"
+      actor_type = "Apt"
+      actor_group = "Unknown"
+      reference = "https://www.cybereason.com/blog/operation-soft-cell-a-worldwide-campaign-against-telecommunications-providers"
+      
 
    strings:
 
@@ -31,8 +37,13 @@ rule poison_ivy_softcell {
 
       description = "Rule to detect Poison Ivy used in the SoftCell operation"
       author = "Marc Rivero | McAfee ATR Team"
-      reference = "https://www.cybereason.com/blog/operation-soft-cell-a-worldwide-campaign-against-telecommunications-providers"
       date = "2019-06-25"
+      rule_version = "v1"
+      malware_type = "rat"
+      malware_family = "Rat:W32/PoisonIvy"
+      actor_type = "Apt"
+      actor_group = "Unknown"
+      reference = "https://www.cybereason.com/blog/operation-soft-cell-a-worldwide-campaign-against-telecommunications-providers"
 
    strings:
 
@@ -65,9 +76,13 @@ rule trochilus_softcell {
    meta:
 
       description = "Rule to detect Trochilus malware used in the SoftCell operation"
-      author = "Marc Rivero | McAfee ATR Team"
-      reference = "https://www.cybereason.com/blog/operation-soft-cell-a-worldwide-campaign-against-telecommunications-providers"
       date = "2019-06-25"
+      rule_version = "v1"
+      malware_type = "trojan"
+      malware_family = "Trojan:W32/Trochilus"
+      actor_type = "Apt"
+      actor_group = "Unknown"
+      reference = "https://www.cybereason.com/blog/operation-soft-cell-a-worldwide-campaign-against-telecommunications-providers"
 
    strings:
 
@@ -96,8 +111,13 @@ rule lg_utility_lateral_movement_softcell {
 
       description = "Rule to detect the utility LG from Joeware to do Lateral Movement in the SoftCell operation"
       author = "Marc Rivero | McAfee ATR Team"
-      reference = "https://www.cybereason.com/blog/operation-soft-cell-a-worldwide-campaign-against-telecommunications-providers"
       date = "2019-06-25"
+      rule_version = "v1"
+      malware_type = "utility"
+      malware_family = "Utility:W32/Joeware"
+      actor_type = "Apt"
+      actor_group = "Unknown"
+      reference = "https://www.cybereason.com/blog/operation-soft-cell-a-worldwide-campaign-against-telecommunications-providers"
 
    strings:
 
@@ -128,8 +148,13 @@ rule mangzamel_softcell {
 
       description = "Rule to detect Mangzamel used in the SoftCell operation"
       author = "Marc Rivero | McAfee ATR Team"
-      reference = "https://www.cybereason.com/blog/operation-soft-cell-a-worldwide-campaign-against-telecommunications-providers"
       date = "2019-06-25"
+      rule_version = "v1"
+      malware_type = "trojan"
+      malware_family = "Trojan:W32/Mangzamel"
+      actor_type = "Apt"
+      actor_group = "Unknown"
+      reference = "https://www.cybereason.com/blog/operation-soft-cell-a-worldwide-campaign-against-telecommunications-providers"
 
    strings:
 
@@ -156,8 +181,13 @@ rule nbtscan_utility_softcell {
 
       description = "Rule to detect nbtscan utility used in the SoftCell operation"
       author = "Marc Rivero | McAfee ATR Team"
-      reference = "https://www.cybereason.com/blog/operation-soft-cell-a-worldwide-campaign-against-telecommunications-providers"
       date = "2019-06-25"
+      rule_version = "v1"
+      malware_type = "utility"
+      malware_family = "Utility:W32/NbtScan"
+      actor_type = "Apt"
+      actor_group = "Unknown"
+      reference = "https://www.cybereason.com/blog/operation-soft-cell-a-worldwide-campaign-against-telecommunications-providers"
 
    strings:
 
@@ -184,8 +214,13 @@ rule mimikatz_utility_softcell {
 
       description = "Rule to detect Mimikatz utility used in the SoftCell operation"
       author = "Marc Rivero | McAfee ATR Team"
-      reference = "https://www.cybereason.com/blog/operation-soft-cell-a-worldwide-campaign-against-telecommunications-providers"
       date = "2019-06-25"
+      rule_version = "v1"
+      malware_type = "hacktool"
+      malware_family = "Hacktool:W32/Mimikatz"
+      actor_type = "Apt"
+      actor_group = "Unknown"
+      reference = "https://www.cybereason.com/blog/operation-soft-cell-a-worldwide-campaign-against-telecommunications-providers"
 
    strings:
 
@@ -228,8 +263,13 @@ rule sfx_winrar_plugx {
 
       description = "Rule to detect the SFX WinRAR delivering a possible Plugx sample"
       author = "Marc Rivero | McAfee ATR Team"
-      reference = "https://www.cybereason.com/blog/operation-soft-cell-a-worldwide-campaign-against-telecommunications-providers"
       date = "2019-06-25"
+      rule_version = "v1"
+      malware_type = "builder"
+      malware_family = "Builder:W32/Plugx"
+      actor_type = "Apt"
+      actor_group = "Unknown"
+      reference = "https://www.cybereason.com/blog/operation-soft-cell-a-worldwide-campaign-against-telecommunications-providers"
 
    strings:
 

@@ -4,9 +4,13 @@ rule apt_miniasp_pdb {
 	 
 		 description = "Rule to detect MiniASP based on PDB"
 		 author = "Marc Rivero | McAfee ATR Team"
-		 reference = "https://www.fireeye.com/content/dam/fireeye-www/services/pdfs/mandiant-apt1-report.pdf"
 		 date = "2012-07-12"
-		 hash = "8d180d59da135e447d01d4bda60de6318b656622b8ec9653b53d58cf9214f63b"
+		 rule_version = "v1"
+         malware_type = "trojan"
+      	 malware_family = "Trojan:W32/MiniASP"
+      	 actor_type = "Apt"
+      	 actor_group = "Unknown"
+		 reference = "https://www.fireeye.com/content/dam/fireeye-www/services/pdfs/mandiant-apt1-report.pdf"
 		 hash = "42334f2119069b8c0ececfb14a7030e480b5d18ca1cc35f1ceaee847bc040e53"
 		 
 	 strings:

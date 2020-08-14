@@ -4,8 +4,13 @@ rule apt_flamer_pdb
 
 		 description = "Rule to detect Flamer based on the PDB"
 		 author = "Marc Rivero | McAfee ATR Team"
-		 reference = "https://www.forcepoint.com/ko/blog/x-labs/flameflamerskywiper-one-most-advanced-malware-found-yet"
 		 date = "2012-05-29"
+		 rule_version = "v1"
+      	 malware_type = "backdoor"
+      	 malware_family = "Backdoor:W32/Flamer"
+      	 actor_type = "Apt"
+     	 actor_group = "Unknown"
+		 reference = "https://www.forcepoint.com/ko/blog/x-labs/flameflamerskywiper-one-most-advanced-malware-found-yet"
 		 hash = "554924ebdde8e68cb8d367b8e9a016c5908640954ec9fb936ece07ac4c5e1b75"
 		 
 	 strings:

@@ -3,6 +3,7 @@ rule APT_acidbox_kernelmode_module
     meta:
     
         description = "Rule to detect the kernel mode component of AcidBox"
+        author = "Marc Rivero | McAfee ATR Team"
         date = "2020-07-24"
         rule_version = "v1"
         malware_type = "kerneldriver"
@@ -26,7 +27,8 @@ rule APT_acidbox_kernelmode_module
    
     condition:
 
-        7 of them and filesize < 78848
+        7 of them and 
+        filesize < 78848
 }
 
 rule APT_acidbox_main_module_dll
@@ -58,7 +60,8 @@ rule APT_acidbox_main_module_dll
    
     condition:
 
-        7 of them and filesize < 550912
+        7 of them and 
+        filesize < 550912
 }
 
 rule APT_acidbox_ssp_dll_module
@@ -66,6 +69,7 @@ rule APT_acidbox_ssp_dll_module
     meta:
     
         description = "Rule to detect the SSP DLL component of AcidBox"
+        author = "Marc Rivero | McAfee ATR Team"
         date = "2020-07-24"
         rule_version = "v1"
         malware_type = "backdoor"
@@ -89,5 +93,6 @@ rule APT_acidbox_ssp_dll_module
    
     condition:
 
-        7 of them and filesize < 199680
+        7 of them and 
+        filesize < 199680
 }

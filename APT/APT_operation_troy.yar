@@ -4,9 +4,13 @@ rule troy_malware_campaign_pdb {
 
 		 description = "Rule to detect the Operation Troy based on the PDB"
 		 author = "Marc Rivero | McAfee ATR Team"
-		 reference = "https://www.mcafee.com/enterprise/en-us/assets/white-papers/wp-dissecting-operation-troy.pdf"
 		 date = "2013-06-23"
-		 hash = "93fbe550387be51f978d9b62fe8befdb94331ce7db4c2206c59e20a1e9a2c968"
+		 rule_version = "v1"
+      	 malware_type = "backdoor"
+      	 malware_family = "Backdoor:W32/OperationTroy"
+      	 actor_type = "Apt"
+      	 actor_group = "Unknown"
+      	 reference = "https://www.mcafee.com/enterprise/en-us/assets/white-papers/wp-dissecting-operation-troy.pdf"
 		 hash = "2ca6b7e9488c1e9f39392e696704ad3f2b82069e35bc8001d620024ebbf2d65a"
 	 
 	 strings:

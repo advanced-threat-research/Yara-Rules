@@ -1,20 +1,17 @@
-import "pe"
-
 rule APT_KimSuky_bckdr_dll {
 
    meta:
 
       description = "Armadillo packed DLL used in Kimsuky campaign"
       author = "Christiaan Beek - McAfee Advanced Threat Research"
-      reference = "https://securelist.com/the-kimsuky-operation-a-north-korean-apt/57915/"
       date = "2018-02-09"
-      hash1 = "afe4237ff1a3415072d2e1c2c8954b013471491c6afdce3f04d2f77e91b0b688"
-      hash2 = "38897be10924bc694632e774ef80d22a94fed100b0ba29f9bd6f254db5f5be0f"
-      hash3 = "8433f648789bcc97684b5ec112ee9948f4667087c615ff19a45216b8a3c27539"
-      hash4 = "1cdbe9eda77a123cf25baf2dc15218e0afd9b65dae80ea9e00c465b676187a1d"
-      hash5 = "53e3cdbfbfb4fe673e10c8bdadc5d8790e21d01f0b40ffde0a08837ab9a3df91"
-      hash6 = "d643d0375168dcb1640d9fefc0c4035d7772c0a3e41b0498780eee9e1935dfff"
-      hash7 = "7cde78633a2cb14b088a3fe59cfad7dd29493dc41c92e3215a27516770273b84"
+      rule_version = "v1"
+      malware_type = "backdoor"
+      malware_family = "Backdoor:W32/Kimsuky"
+      actor_type = "Apt"
+      actor_group = "Unknown"
+      reference = "https://securelist.com/the-kimsuky-operation-a-north-korean-apt/57915/"
+      hash = "afe4237ff1a3415072d2e1c2c8954b013471491c6afdce3f04d2f77e91b0b688"
 
    strings:
 
@@ -43,6 +40,11 @@ rule APT_KimSuky_bckdr_dll {
    
    condition:
 
-      ( uint16(0) == 0x5a4d and filesize < 200KB and ( 1 of ($x*) and 4 of them ) and all of ($op*)) or ( all of them )
+      ( uint16(0) == 0x5a4d and 
+      filesize < 200KB and 
+      ( 1 of ($x*) and 
+      4 of them ) and 
+      all of ($op*)) or 
+      ( all of them )
 }
 

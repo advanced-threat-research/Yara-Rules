@@ -7,6 +7,11 @@ rule pwnlnx_backdoor_variant_1 {
         description = "Rule to detect the backdoor pwnlnx variant 1"
         author = "Marc Rivero | McAfee ATR Team"
         date = "2020-04-17"
+        rule_version = "v1"
+        malware_type = "backdoor"
+        malware_family = "Backdoor:W32/Pwnlnx"
+        actor_type = "Cybercrime"
+        actor_group = "Unknown"
         reference = "https://www.blackberry.com/content/dam/blackberry-com/asset/enterprise/pdf/direct/report-bb-decade-of-the-rats.pdf"
         hash = "0f6033d6f82ce758b576e2d8c483815e908e323d0b700040fbdab5593fb5282b"
     
@@ -34,6 +39,11 @@ rule pwnlnx_backdoor_variant_2 {
         description = "Rule to detect the backdoor pwnlnx variant 2"
         author = "Marc Rivero | McAfee ATR Team"
         date = "2020-04-17"
+        rule_version = "v1"
+        malware_type = "backdoor"
+        malware_family = "Backdoor:W32/Pwnlnx"
+        actor_type = "Cybercrime"
+        actor_group = "Unknown"
         reference = "https://www.blackberry.com/content/dam/blackberry-com/asset/enterprise/pdf/direct/report-bb-decade-of-the-rats.pdf"
         hash = "08cc67002782cbafd97a4bff549d25dd72d6976d2fdf79339aaf5a3ff7c3107e"
     
@@ -61,6 +71,11 @@ rule pwnlnx_backdoor_variant_3 {
         description = "Rule to detect the backdoor pwnlnx variant"
         author = "Marc Rivero | McAfee ATR Team"
         date = "2020-04-17"
+        rule_version = "v1"
+        malware_type = "backdoor"
+        malware_family = "Backdoor:W32/Pwnlnx"
+        actor_type = "Cybercrime"
+        actor_group = "Unknown"
         reference = "https://www.blackberry.com/content/dam/blackberry-com/asset/enterprise/pdf/direct/report-bb-decade-of-the-rats.pdf"
         hash = "08f29e234f0ce3bded1771d702f8b5963b144141727e48b8a0594f58317aac75"
     
@@ -88,6 +103,11 @@ rule pwnlnx_backdoor_variant_4 {
         description = "Rule to detect the backdoor pwnlnx variant 4"
         author = "Marc Rivero | McAfee ATR Team"
         date = "2020-04-17"
+        rule_version = "v1"
+        malware_type = "backdoor"
+        malware_family = "Backdoor:W32/Pwnlnx"
+        actor_type = "Cybercrime"
+        actor_group = "Unknown"
         reference = "https://www.blackberry.com/content/dam/blackberry-com/asset/enterprise/pdf/direct/report-bb-decade-of-the-rats.pdf"
         hash = "2590ab56d46ff344f2aa4998efd1db216850bdddfc146d5d37e4b7d07c7336fc"
     
@@ -115,6 +135,11 @@ rule pwnlnx_backdoor_variant_6 {
         description = "Rule to detect the backdoor pwnlnx variant 6"
         author = "Marc Rivero | McAfee ATR Team"
         date = "2020-04-17"
+        rule_version = "v1"
+        malware_type = "backdoor"
+        malware_family = "Backdoor:W32/Pwnlnx"
+        actor_type = "Cybercrime"
+        actor_group = "Unknown"
         reference = "https://www.blackberry.com/content/dam/blackberry-com/asset/enterprise/pdf/direct/report-bb-decade-of-the-rats.pdf"
         hash = "d29254ab907c9ef54349de3ec0dd8b22b4692c58ed7a7b340afbc6e44363f96a"
     
@@ -142,6 +167,11 @@ rule mirai_casper_variant {
         description = "Rule to detect the Mirai Casper variant"
         author = "Marc Rivero | McAfee ATR Team"
         date = "2020-04-17"
+        rule_version = "v1"
+        malware_type = "backdoor"
+        malware_family = "Backdoor:W32/Pwnlnx"
+        actor_type = "Cybercrime"
+        actor_group = "Unknown"
         reference = "https://www.blackberry.com/content/dam/blackberry-com/asset/enterprise/pdf/direct/report-bb-decade-of-the-rats.pdf"
         hash = "57cc422a6a90c571198a2d1c3db13c31fbdb48ba2f0f4356846d6d636d0f9300"
     
@@ -167,12 +197,15 @@ rule APT_stolen_certificates {
 
     meta:
 
-        author = "Marc Rivero | McAfee ATR Team"
         description = "Rule to detect samples digitally signed from these stolen certificates"
+        author = "Marc Rivero | McAfee ATR Team"
         date = "2020-04-17"
+        rule_version = "v1"
+        malware_type = "backdoor"
+        malware_family = "Backdoor:W32/Pwnlnx"
+        actor_type = "Cybercrime"
+        actor_group = "Unknown"
         reference = "https://www.blackberry.com/content/dam/blackberry-com/asset/enterprise/pdf/direct/report-bb-decade-of-the-rats.pdf"
-        hash = "a3fc3ca178175fa8d767d865bc983ef40ced5aaf721750c6279a1ef7faa418ac"
-        hash = "3628efd2a0e4c28c13233dbd8353ad825865312f39cfbaff1e259f37b2dd08b5"
         hash = "ce3424524fd1f482a0339a3f92e440532cff97c104769837fa6ae52869013558"
         
     condition:

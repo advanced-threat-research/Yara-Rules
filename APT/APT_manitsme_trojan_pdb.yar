@@ -4,8 +4,13 @@ rule apt_manitsme_trojan {
   
       description = "Rule to detect the Manitsme trojan"
       author = "Marc Rivero | McAfee ATR Team"
-      reference = "https://www.fireeye.com/content/dam/fireeye-www/services/pdfs/mandiant-apt1-report.pdf"
       date = "2013-03-08"
+      rule_version = "v1"
+      malware_type = "trojan"
+      malware_family = "Trojan:W32/Manitsme"
+      actor_type = "Apt"
+      actor_group = "Unknown"
+      reference = "https://www.fireeye.com/content/dam/fireeye-www/services/pdfs/mandiant-apt1-report.pdf"
       hash = "c1c0ea096ec4d36c1312171de2a9ebe258c588528a20dbb06a7e3cf97bf1e197"
   
    strings:

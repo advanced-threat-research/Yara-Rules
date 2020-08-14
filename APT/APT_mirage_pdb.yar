@@ -4,9 +4,13 @@ rule apt_mirage_pdb {
 	
 		 description = "Rule to detect Mirage samples based on PDB"
 		 author = "Marc Rivero | McAfee ATR Team"
-		 reference = "https://www.secureworks.com/research/the-mirage-campaign"
 		 date = "2012-09-18"
-		 hash = "f2fd3f732925ff1601df41b8d7816a9b027f4a217ee7031688ded151d656a385"
+		 rule_version = "v1"
+         malware_type = "trojan"
+         malware_family = "Trojan:W32/Mirage"
+         actor_type = "Apt"
+         actor_group = "Unknown"
+		 reference = "https://www.secureworks.com/research/the-mirage-campaign"
 		 hash = "0107a12f05bea4040a467dd5bc5bd130fd8a4206a09135d452875da89f121019"
 		 
 	strings:

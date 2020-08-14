@@ -5,10 +5,14 @@ rule milum_trojan {
         meta:
 
             description = "Rule to detect Milum trojan from the Wildpressure operation"
-            author      = "Marc Rivero | McAfee ATR Team"
-            reference = "https://securelist.com/wildpressure-targets-industrial-in-the-middle-east/96360/"
+            author = "Marc Rivero | McAfee ATR Team"
             date = "2020-04-24"
-            hash = "5f8278119a4fe1156b494876ed5bde34993a094e09c35f5b2597ce32a88d518f"
+            rule_version = "v1"
+            malware_type = "trojan"
+            malware_family = "Trojan:W32/Milum"
+            actor_type = "Apt"
+            actor_group = "Unknown"
+            reference = "https://securelist.com/wildpressure-targets-industrial-in-the-middle-east/96360/"
             hash = "86456ebf6b807e8253faf1262e7a2b673131c80174f6133b253b2e5f0da442a9"
 
         strings:

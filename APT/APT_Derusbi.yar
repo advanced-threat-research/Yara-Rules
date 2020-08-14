@@ -4,8 +4,14 @@ rule apt_nix_elf_derusbi {
         
       description = "Rule to detect the APT Derusbi ELF file"
       author = "Marc Rivero | McAfee ATR Team"
-      reference = "https://attack.mitre.org/software/S0021/"
       date = "2017-05-31"
+      rule_version = "v1"
+      malware_type = "backdoor"
+      malware_family = "Backdoor:ELF/Derusbi"
+      actor_type = "Cybercrime"
+      actor_group = "Unknown"
+      reference = "https://attack.mitre.org/software/S0021/"
+      
 
     strings:
 
@@ -60,8 +66,13 @@ rule apt_nix_elf_derusbi_kernelModule {
 
       description = "Rule to detect the Derusbi ELK Kernel module"
       author = "Marc Rivero | McAfee ATR Team"
-      reference = "https://attack.mitre.org/software/S0021/"
       date = "2017-05-31"
+      rule_version = "v1"
+      malware_type = "backdoor"
+      malware_family = "Backdoor:ELF/Derusbi"
+      actor_type = "Cybercrime"
+      actor_group = "Unknown"
+      reference = "https://attack.mitre.org/software/S0021/"
 
     strings:
 
@@ -99,8 +110,13 @@ rule apt_nix_elf_Derusbi_Linux_SharedMemCreation {
 
       description = "Rule to detect Derusbi Linux Shared Memory creation"
       author = "Marc Rivero | McAfee ATR Team"
-      reference = "https://attack.mitre.org/software/S0021/"
       date = "2017-05-31"
+      rule_version = "v1"
+      malware_type = "backdoor"
+      malware_family = "Backdoor:ELF/Derusbi"
+      actor_type = "Cybercrime"
+      actor_group = "Unknown"
+      reference = "https://attack.mitre.org/software/S0021/"
 
     strings:
 
@@ -119,8 +135,13 @@ rule apt_nix_elf_Derusbi_Linux_Strings {
 
       description = "Rule to detect APT Derusbi Linux Strings"
       author = "Marc Rivero | McAfee ATR Team"
-      reference = "https://attack.mitre.org/software/S0021/"
       date = "2017-05-31"
+      rule_version = "v1"
+      malware_type = "backdoor"
+      malware_family = "Backdoor:ELF/Derusbi"
+      actor_type = "Cybercrime"
+      actor_group = "Unknown"
+      reference = "https://attack.mitre.org/software/S0021/"
 
     strings:
 
@@ -157,8 +178,13 @@ rule apt_win_exe_trojan_derusbi {
 
       description = "Rule to detect Derusbi Trojan"
       author = "Marc Rivero | McAfee ATR Team"
-      reference = "https://attack.mitre.org/software/S0021/"
       date = "2017-05-31"
+      rule_version = "v1"
+      malware_type = "backdoor"
+      malware_family = "Backdoor:ELF/Derusbi"
+      actor_type = "Cybercrime"
+      actor_group = "Unknown"
+      reference = "https://attack.mitre.org/software/S0021/"
 
    strings:
 

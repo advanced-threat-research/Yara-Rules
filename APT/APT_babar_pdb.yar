@@ -4,8 +4,13 @@ rule apt_babar_malware {
 
       description = "Rule to detect Babar malware"
       author = "Marc Rivero | McAfee ATR Team"
-      reference = "http://motherboard.vice.com/read/meet-babar-a-new-malware-almost-certainly-created-by-france"
       date = "2015-02-18"
+      rule_version = "v1"
+      malware_type = "backdoor"
+      malware_family = "Backdoor:W32/Babar"
+      actor_type = "Cybercrime"
+      actor_group = "Unknown"
+      reference = "http://motherboard.vice.com/read/meet-babar-a-new-malware-almost-certainly-created-by-france"
       hash = "c72a055b677cd9e5e2b2dcbba520425d023d906e6ee609b79c643d9034938ebf"
 
    strings:

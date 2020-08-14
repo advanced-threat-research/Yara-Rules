@@ -2,10 +2,15 @@ rule apt_blackenergy_pdb {
    
    meta:
    
-      description = "Rule tp detect the BlackEnergy trojan"
+      description = "Rule to detect the BlackEnergy trojan"
       author = "Marc Rivero | McAfee ATR Team"
-      reference = "https://www.kaspersky.com.au/resource-center/threats/blackenergy"
       date = "2013-02-15"
+      rule_version = "v1"
+      malware_type = "trojan"
+      malware_family = "Trojan:W32/BlackEngergy"
+      actor_type = "Cybercrime"
+      actor_group = "Unknown"
+      reference = "https://www.kaspersky.com.au/resource-center/threats/blackenergy"
       hash = "4b2efcda5269f4b80dc417a2b01332185f2fafabd8ba7114fa0306baaab5a72d"
    
    strings:

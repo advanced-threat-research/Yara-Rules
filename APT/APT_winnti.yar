@@ -2,14 +2,16 @@ rule APT_winnti {
 
 	meta:
 
-		author = "Marc Rivero | McAfee ATR Team"
 		description = "Detects Winnti variants"
-		date = "06/04/2020"
+		author = "Marc Rivero | McAfee ATR Team"
+		date = "2020-06-04"
+		rule_version = "v1"
+      	malware_type = "backdoor"
+      	malware_family = "Backdoor:W32/Winnti"
+      	actor_type = "Apt"
+       	actor_group = "Unknown"
 		reference = "https://attack.mitre.org/software/S0141/"
 		hash = "fd539d345821d9ac9b885811b1f642aa1817ba8501d47bc1de575f5bef2fbf9e"
-		hash = "30115717d20e469e7c4bf45489f6c6d8810f32b1b68b6aa4b0ffcb21764ea99c"
-		hash = "937b8a73ba9acac9e74086150d203ffd3fc242b14b833e7c8064e33781ee3472"
-		hash = "5d4f46c4751573a3cbc63a6abed42068bf62416811b13bd7b6b7762151bd184d"
 
 	strings:
 

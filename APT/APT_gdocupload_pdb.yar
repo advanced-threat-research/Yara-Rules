@@ -5,6 +5,11 @@ rule apt_gdocupload_glooxmail {
       description = "Rule to detect gdocupload tool used by APT1"
       author = "Marc Rivero | McAfee ATR Team"
       date = "2013-02-19"
+      rule_version = "v1"
+      malware_type = "backdoor"
+      malware_family = "Backdoor:W32/Gdocupload"
+      actor_type = "Cybercrime"
+      actor_group = "Unknown"
       reference = "https://www.fireeye.com/content/dam/fireeye-www/services/pdfs/mandiant-apt1-report.pdf"
       hash = "295c5c7aa5fa29628dec9f42ed657fce0bc789079c4e51932bcbc99a28dfd440"
 
