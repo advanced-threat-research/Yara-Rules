@@ -4,8 +4,13 @@ rule loocipher_ransomware {
 
       description = "Rule to detect Loocipher ransomware"
       author = "Marc Rivero | McAfee ATR Team"
-      reference = "https://www.mcafee.com/blogs/other-blogs/mcafee-labs/analysis-of-loocipher-a-new-ransomware-family-observed-this-year/"
       date = "2019-12-05"
+      rule_version = "v1"
+      malware_type = "ransomware"
+      malware_family = "Ransom:W32/Loocipher"
+      actor_type = "Cybercrime"
+      actor_group = "Unknown"
+      reference = "https://www.mcafee.com/blogs/other-blogs/mcafee-labs/analysis-of-loocipher-a-new-ransomware-family-observed-this-year/"
       hash = "7720aa6eb206e589493e440fec8690ceef9e70b5e6712a9fec9208c03cac7ff0"
       
    strings:

@@ -27,5 +27,6 @@ rule RANSOM_wastedlocker
    
     condition:
 
-        7 of them and filesize < 1806288
+        7 of them and
+        filesize < 1806288
 }

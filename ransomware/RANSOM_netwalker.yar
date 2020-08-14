@@ -7,8 +7,13 @@ rule netwalker_ransomware
 
             description = "Rule to detect Netwalker ransomware"
             author = "Marc Rivero | McAfee ATR Team"
-            reference = "https://www.ccn-cert.cni.es/comunicacion-eventos/comunicados-ccn-cert/9802-publicado-un-informe-de-codigo-danino-sobre-netwalker.html"
             date = "2020-03-30"
+            rule_version = "v1"
+            malware_type = "ransomware"
+            malware_family = "Ransom:W32/Netwalker"
+            actor_type = "Cybercrime"
+            actor_group = "Unknown"
+            reference = "https://www.ccn-cert.cni.es/comunicacion-eventos/comunicados-ccn-cert/9802-publicado-un-informe-de-codigo-danino-sobre-netwalker.html"
             note = "The rule doesn't detect the samples packed with UPX"
             
         strings:
@@ -45,14 +50,20 @@ rule netwalker_signed {
 }
 
 rule Netwalker {
+
     meta:
+
         description = "Rule based on code overlap in RagnarLocker ransomware"
         author = "McAfee ATR team"
         date = "2020-06-14"
+        rule_version = "v1"
         malware_type = "ransomware"
-        actor_type = "CyberCrime"
-        actor = "Unknown"
+        malware_family = "Ransom:W32/Netwalker"
+        actor_type = "Cybercrime"
+        actor_group = "Unknown"
+
   strings:
+
     $0 = {C88BF28B4330F76F3803C88B434813F2F76F2003C88B433813F2F76F3003C88B434013F2F76F2803C88B432813F2F76F4003C8894D6813F289756C8B4338F76F388BC88BF28B4328F76F4803C88B434813F2F76F2803C88B433013F2F76F400FA4CE}
     $1 = {89542414895424108BEA8BDA8BFA423C22747C3C5C75588A023C5C744F3C2F744B3C2274473C6275078D5702B008EB3F3C6675078D5302B00CEB343C6E75078D5502B00AEB293C72750B8B542410B00D83C202EB1A3C74750B8B542414B00983C2}
     $2 = {C8894D7013F28975748B4338F76F408BC88BF28B4340F76F3803C88B433013F2F76F4803C88B434813F2F76F3003C8894D7813F289757C8B4348F76F388BC88BF28B4338F76F4803C88B434013F2F76F400FA4CE}
@@ -60,23 +71,31 @@ rule Netwalker {
     $4 = {8B433013F2F76F0803C88B432013F2F76F1803C88B0313F2F76F3803C88B430813F2F76F3003C88B433813F2F72F03C8894D3813F289753C8B4338F76F088BC8}
     $5 = {F73101320E32213234329832E3320C332D334733643383339133A833BD33053463347C34543564358335AE36C3362937E9379A39BA390A3A203A443A183B2B3B}
     $6 = {8B431813F2F76F4803C88B432813F2F76F3803C88B434013F2F76F200FA4CE0103C903C88B432013F2F76F4003C88B433013F2F76F3003C8894D6013F2897564}
+  
   condition:
+
     uint16(0) == 0x5A4D and
     uint32(uint32(0x3C)) == 0x00004550 and 
     all of them
     }
     
 rule win_netwalker_reflective_dll_injection_decoded {
+
     meta:
+
+        description = "Rule to detect Reflective DLL Injection Powershell Script dropping Netwalker, after hexadecimal decoded and xor decrypted "
         author = "McAfee ATR Team"
         date = "2020-05-28"
-        Description = "Rule to detect Reflective DLL Injection Powershell Script dropping Netwalker, after hexadecimal decoded and xor decrypted "
-        report_reference = "https://blog.trendmicro.com/trendlabs-security-intelligence/netwalker-fileless-ransomware-injected-via-reflective-loading/ | https://news.sophos.com/en-us/2020/05/27/netwalker-ransomware-tools-give-insight-into-threat-actor/"
+        rule_version = "v1"
         malware_type = "ransomware"
-        actor_type = "CyberCrime"
-        actor = "Unknown"
+        malware_family = "Ransom:W32/Netwalker"
+        actor_type = "Cybercrime"
+        actor_group = "Unknown"
+        reference = "https://blog.trendmicro.com/trendlabs-security-intelligence/netwalker-fileless-ransomware-injected-via-reflective-loading/ | https://news.sophos.com/en-us/2020/05/27/netwalker-ransomware-tools-give-insight-into-threat-actor/"
         hash = "fd29001b8b635e6c51270788bab7af0bb5adba6917c278b93161cfc2bc7bd6ae"
+        
         strings:
+
         // API addresses of the functions the script needs from kernel32.dll
         $api0 = { 5b 44 6c 6c 49 6d 70 6f 72 74 28 22 6b 65 72 6e 65 6c 33 32 2e 64 6c 6c 22 2c 53 65 74 4c 61 73 74 45 72 72 6f 72 20 3d 20 74 72 75 65 2c 20 45 6e 74 72 79 50 6f 69 6e 74 20 3d 20 22 56 69 72 74 75 61 6c 41 6c 6c 6f 63 22 29 5d }
         // [DllImport("kernel32.dll",SetLastError = true, EntryPoint = "VirtualAlloc")]
@@ -119,7 +138,9 @@ rule win_netwalker_reflective_dll_injection_decoded {
         // -ExecutionPolicy ByPass -NoLogo -NonInteractive -NoProfile -NoExit
         $artifact8 = {72 65 74 75 72 6e 20 5b 42 69 74 43 6f 6e 76 65 72 74 65 72 5d 3a 3a 54 6f 49 6e 74 36 34}
         // return [BitConverter]::ToInt64
+        
         condition:
+
             6 of ($api*) or
             ( 
                 (3 of ($artifact*))

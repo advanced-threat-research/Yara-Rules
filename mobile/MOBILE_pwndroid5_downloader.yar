@@ -8,6 +8,11 @@ rule pwndroid5_downloader {
         description = "Rule to detect the downloader pwndroid5"
         author = "Marc Rivero | McAfee ATR Team"
         date = "2020-04-17"
+        rule_version = "v1"
+        malware_type = "downloader"
+        malware_family = "Downloader:Android/Pwndroid5"
+        actor_type = "Cybercrime"
+        actor_group = "Unknown"
         reference = "https://www.blackberry.com/content/dam/blackberry-com/asset/enterprise/pdf/direct/report-bb-decade-of-the-rats.pdf"
         hash = "64424a7c5f0d8e1c5d64c4c6fa9bdc2987dbdcf1bafdb6f45df9e783712c5187"
 
@@ -47,6 +52,11 @@ rule pwndroid5_downloader_certificate {
         description = "Rule to detect the downloader pwndroid5 based on the certificate"
         author = "Marc Rivero | McAfee ATR Team"
         date = "2020-04-17"
+        rule_version = "v1"
+        malware_type = "downloader"
+        malware_family = "Downloader:Android/Pwndroid5"
+        actor_type = "Cybercrime"
+        actor_group = "Unknown"
         reference = "https://www.blackberry.com/content/dam/blackberry-com/asset/enterprise/pdf/direct/report-bb-decade-of-the-rats.pdf"
         hash = "64424a7c5f0d8e1c5d64c4c6fa9bdc2987dbdcf1bafdb6f45df9e783712c5187"
 

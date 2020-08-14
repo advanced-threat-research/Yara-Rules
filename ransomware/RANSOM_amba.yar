@@ -4,11 +4,13 @@ rule amba_ransomware {
 
       description = "Rule to detect Amba Ransomware"
       author = "Marc Rivero | McAfee ATR Team"
-      reference = "https://www.enigmasoftware.com/ambaransomware-removal/"
       date = "2017-07-03"
-      hash = "7c08cdf9f4e8be34ef6af5b53794163023c2b013f34c4134b8922f42933012a0"
-      hash = "73155a084aac8434bb0779a0b88e97d5cf2d0760e9d25f2f42346d3e06cdaac2"
-      hash = "ec237bc926ce9008a219b8b30882f3ac18531bd314ee852369fc712368c6acd5"
+      rule_version = "v1"
+      malware_type = "ransomware"
+      malware_family = "Ransom:W32/Amba"
+      actor_type = "Cybercrime"
+      actor_group = "Unknown"
+      reference = "https://www.enigmasoftware.com/ambaransomware-removal/"
       hash = "b9b6045a45dd22fcaf2fc13d39eba46180d489cb4eb152c87568c2404aecac2f"
 
    strings:

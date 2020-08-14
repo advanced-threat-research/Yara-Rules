@@ -1,13 +1,15 @@
-import "pe"
-
-rule Monero_Mining_Detection {
+rule MINER_monero_mining_detection {
 
    meta:
 
       description = "Monero mining software"
-      author = "Christiaan Beek"
-      reference = "MoneroMiner"
+      author = "Christiaan Beek | McAfee ATR Team"
       date = "2018-04-05"
+      rule_version = "v1"
+      malware_type = "miner"
+      malware_family = "Ransom:W32/MoneroMiner"
+      actor_type = "Cybercrime"
+      actor_group = "Unknown"   
       
    strings:
 
@@ -34,6 +36,9 @@ rule Monero_Mining_Detection {
    
    condition:
    
-      ( uint16(0) == 0x5a4d and filesize < 4000KB and ( 8 of them )) or ( all of them )
+      ( uint16(0) == 0x5a4d and
+      filesize < 4000KB and
+      ( 8 of them )) or
+      ( all of them )
 }
 

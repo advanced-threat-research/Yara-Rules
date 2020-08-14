@@ -6,12 +6,14 @@ rule ragnarlocker_ransomware {
    
       description = "Rule to detect RagnarLocker samples"
       author = "Christiaan Beek | Marc Rivero | McAfee ATR Team"
-      reference = "https://www.bleepingcomputer.com/news/security/ragnar-locker-ransomware-targets-msp-enterprise-support-tools/"
       date = "2020-04-15"
-      hash1 = "63096f288f49b25d50f4aea52dc1fc00871b3927fa2a81fa0b0d752b261a3059"
-      hash2 = "9bdd7f965d1c67396afb0a84c78b4d12118ff377db7efdca4a1340933120f376"
-      hash3 = "ec35c76ad2c8192f09c02eca1f263b406163470ca8438d054db7adcf5bfc0597"
-      hash4 = "9706a97ffa43a0258571def8912dc2b8bf1ee207676052ad1b9c16ca9953fc2c"
+      rule_version = "v1"
+      malware_type = "ransomware"
+      malware_family = "Ransom:W32/RagnarLocker"
+      actor_type = "Cybercrime"
+      actor_group = "Unknown"
+      reference = "https://www.bleepingcomputer.com/news/security/ragnar-locker-ransomware-targets-msp-enterprise-support-tools/"
+      hash = "9706a97ffa43a0258571def8912dc2b8bf1ee207676052ad1b9c16ca9953fc2c"
       
    strings:
    
@@ -36,6 +38,8 @@ rule ragnarlocker_ransomware {
      uint16(0) == 0x5a4d and 
      filesize < 100KB and 
      (4 of ($s*) and $op1) or
-     all of ($p*) and pe.imphash() == "9f611945f0fe0109fe728f39aad47024" or
-     all of ($bp*) and pe.imphash() == "489a2424d7a14a26bfcfb006de3cd226" 
+     all of ($p*) and
+     pe.imphash() == "9f611945f0fe0109fe728f39aad47024" or
+     all of ($bp*) and
+     pe.imphash() == "489a2424d7a14a26bfcfb006de3cd226" 
 }

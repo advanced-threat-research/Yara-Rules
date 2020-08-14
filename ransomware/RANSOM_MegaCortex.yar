@@ -4,8 +4,13 @@ rule megacortex_signed {
 
     meta:
 
-        author = "Marc Rivero | McAfee ATR Team"
         description = "Rule to detect MegaCortex samples digitally signed"
+        author = "Marc Rivero | McAfee ATR Team"
+        rule_version = "v1"
+        malware_type = "ransomware"
+        malware_family = "Ransom:W32/MegaCortex"
+        actor_type = "Cybercrime"
+        actor_group = "Unknown"
         reference = "https://blog.malwarebytes.com/detections/ransom-megacortex/"
         
     condition:

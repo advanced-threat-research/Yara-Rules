@@ -6,9 +6,14 @@ rule nefilim_ransomware {
 
       description = "Rule to detect Nefilim ransomware"
       author = "Marc Rivero | McAfee ATR Team"
-      reference = "https://www.bleepingcomputer.com/news/security/new-nefilim-ransomware-threatens-to-release-victims-data/"
       date = "2020-03-17"
       last_update = "2020-04-03"
+      rule_version = "v1"
+      malware_type = "ransomware"
+      malware_family = "Ransom:W32/Nefilim"
+      actor_type = "Cybercrime"
+      actor_group = "Unknown"
+      reference = "https://www.bleepingcomputer.com/news/security/new-nefilim-ransomware-threatens-to-release-victims-data/"
       hash = "5ab834f599c6ad35fcd0a168d93c52c399c6de7d1c20f33e25cb1fdb25aec9c6"
 
    strings:
@@ -46,10 +51,15 @@ rule nefilim_signed {
 
     meta:
 
-        author = "Marc Rivero | McAfee ATR Team"
         description = "Rule to detect Nefilim samples digitally signed"
-        reference = "https://www.bleepingcomputer.com/news/security/new-nefilim-ransomware-threatens-to-release-victims-data/"
+        author = "Marc Rivero | McAfee ATR Team"
         date = "2020-04-02"
+        rule_version = "v1"
+        malware_type = "ransomware"
+        malware_family = "Ransom:W32/Nefilim"
+        actor_type = "Cybercrime"
+        actor_group = "Unknown"
+        reference = "https://www.bleepingcomputer.com/news/security/new-nefilim-ransomware-threatens-to-release-victims-data/"
         hash = "353ee5805bc5c7a98fb5d522b15743055484dc47144535628d102a4098532cd5"
         
     condition:
@@ -70,8 +80,11 @@ rule RANSOM_nefilim_go
         date = "2020-07-13"
         rule_version = "v1"
         malware_type = "ransomware"
+        malware_family = "Ransom:W32/Nefilim"
         actor_type = "Cybercrime"
-        sha256 = "a51fec27e478a1908fc58c96eb14f3719608ed925f1b44eb67bbcc67bd4c4099"
+        actor_group = "Unknown"
+        reference = "https://www.bleepingcomputer.com/news/security/new-nefilim-ransomware-threatens-to-release-victims-data/"
+        hash = "a51fec27e478a1908fc58c96eb14f3719608ed925f1b44eb67bbcc67bd4c4099"
 
     strings:
 

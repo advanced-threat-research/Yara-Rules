@@ -4,8 +4,13 @@ rule snake_ransomware {
 
 		description = "Rule to detect Snake ransomware"
 		author = "Marc Rivero | McAfee ATR Team"
-		reference = "https://dragos.com/blog/industry-news/ekans-ransomware-and-ics-operations/"
 		date = "2020-02-20"
+		rule_version = "v1"
+        malware_type = "ransomware"
+        malware_family = "Ransom:W32/EKANS"
+        actor_type = "Cybercrime"
+        actor_group = "Unknown"
+		reference = "https://dragos.com/blog/industry-news/ekans-ransomware-and-ics-operations/"
 		hash = "e5262db186c97bbe533f0a674b08ecdafa3798ea7bc17c705df526419c168b60"
 		
 	strings:

@@ -4,8 +4,13 @@ rule screenlocker_acroware {
 
       description = "Rule to detect the ScreenLocker Acroware"
       author = "Marc Rivero | McAfee ATR Team"
-      reference = "https://www.bleepingcomputer.com/news/security/the-week-in-ransomware-august-31st-2018-devs-on-vacation/"
       date = "2018-08-28"
+      rule_version = "v1"
+      malware_type = "ransomware"
+      malware_family = "Ransom:W32/Acroware"
+      actor_type = "Cybercrime"
+      actor_group = "Unknown"
+      reference = "https://www.bleepingcomputer.com/news/security/the-week-in-ransomware-august-31st-2018-devs-on-vacation/"
       hash = "f9efcfc5328e6502cbbbff752a940ac221e437d8732052fc265618f6a6ad72ae"
       
    strings:

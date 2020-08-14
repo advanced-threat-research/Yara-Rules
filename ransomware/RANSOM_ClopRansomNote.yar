@@ -4,9 +4,14 @@ rule clop_ransom_note {
 
       description = "Rule to detect Clop Ransomware Note"
       author = "Marc Rivero | McAfee ATR Team"
-      reference = "https://www.mcafee.com/blogs/other-blogs/mcafee-labs/clop-ransomware/"
       date = "2019-08-01"
-
+      rule_version = "v1"
+      malware_type = "ransomware"
+      malware_family = "Ransom:W32/Clop"
+      actor_type = "Cybercrime"
+      actor_group = "Unknown"
+      reference = "https://www.mcafee.com/blogs/other-blogs/mcafee-labs/clop-ransomware/"
+      
    strings:
 
       $s1 = "If you want to restore your files write to emails" fullword ascii

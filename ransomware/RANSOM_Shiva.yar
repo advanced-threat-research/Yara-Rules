@@ -4,8 +4,13 @@ rule unpacked_shiva_ransomware {
 
       description = "Rule to detect an unpacked sample of Shiva ransomware"
       author = "Marc Rivero | McAfee ATR Team"
-      reference = "https://twitter.com/malwrhunterteam/status/1037424962569732096"
       date = "2018-09-05"
+      rule_version = "v1"
+      malware_type = "ransomware"
+      malware_family = "Ransom:W32/Shiva"
+      actor_type = "Cybercrime"
+      actor_group = "Unknown"
+      reference = "https://twitter.com/malwrhunterteam/status/1037424962569732096"
       hash = "299bebcb18e218254960ef96c2e65a4dc1945dcdfe9fc68550022f99a474f56d"
     
    strings:

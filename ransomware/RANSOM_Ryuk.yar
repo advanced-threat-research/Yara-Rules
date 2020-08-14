@@ -1,12 +1,20 @@
-import "pe"
-
 rule Ryuk_Ransomware {
+
    meta:
+
       description = "Ryuk Ransomware hunting rule"
       author = "Christiaan Beek - McAfee ATR team"
-      reference = "https://securingtomorrow.mcafee.com/other-blogs/mcafee-labs/ryuk-ransomware-attack-rush-to-attribution-misses-the-point/"
       date = "2019-04-25"
+      rule_version = "v1"
+      malware_type = "ransomware"
+      malware_family = "Ransom:W32/Ryuk"
+      actor_type = "Cybercrime"
+      actor_group = "Unknown"
+      reference = "https://securingtomorrow.mcafee.com/other-blogs/mcafee-labs/ryuk-ransomware-attack-rush-to-attribution-misses-the-point/"
+      
+   
    strings:
+
       $x1 = "C:\\Windows\\System32\\cmd.exe" fullword ascii
       $x2 = "\\System32\\cmd.exe" fullword wide
       $s1 = "C:\\Users\\Admin\\Documents\\Visual Studio 2015\\Projects\\ConsoleApplication54new crypted" ascii
@@ -29,7 +37,12 @@ rule Ryuk_Ransomware {
       $op1 = { c7 44 24 34 00 40 00 00 c7 44 24 38 01 }
     
    condition:
-      ( uint16(0) == 0x5a4d and filesize < 400KB and ( 1 of ($x*) and 4 of them ) and all of ($op*)
-      ) or ( all of them )
+
+      ( uint16(0) == 0x5a4d and
+      filesize < 400KB and
+      ( 1 of ($x*) and
+      4 of them ) and
+      all of ($op*)) or
+      ( all of them )
 }
 

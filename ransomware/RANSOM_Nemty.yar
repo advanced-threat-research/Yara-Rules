@@ -4,8 +4,13 @@ rule nemty_ransomware {
 
       description = "Rule to detect Nemty Ransomware"
       author = "Marc Rivero | McAfee ATR Team"
-      reference = "https://www.mcafee.com/blogs/other-blogs/mcafee-labs/nemty-ransomware-learning-by-doing/"
       date = "2020-02-23"
+      rule_version = "v1"
+      malware_type = "ransomware"
+      malware_family = "Ransom:W32/Nemty"
+      actor_type = "Cybercrime"
+      actor_group = "Unknown"
+      reference = "https://www.mcafee.com/blogs/other-blogs/mcafee-labs/nemty-ransomware-learning-by-doing/"
       hash = "73bf76533eb0bcc4afb5c72dcb8e7306471ae971212d05d0ff272f171b94b2d4"
 
    strings:
@@ -45,9 +50,13 @@ rule nemty_ransomware_2_6 {
 
       description = "Rule to detect Nemty Ransomware version 2.6"
       author = "Marc Rivero | McAfee ATR Team"
-      reference = "https://www.mcafee.com/blogs/other-blogs/mcafee-labs/nemty-ransomware-learning-by-doing/"
       date = "2020-04-06"
-      hash = "697b36feb384f24bf54b54adb2595ec0205c3d81cc1355edc1bd591fd4b0fe22"
+      rule_version = "v1"
+      malware_type = "ransomware"
+      malware_family = "Ransom:W32/Nemty"
+      actor_type = "Cybercrime"
+      actor_group = "Unknown"
+      reference = "https://www.mcafee.com/blogs/other-blogs/mcafee-labs/nemty-ransomware-learning-by-doing/"
       hash = "52b7d20d358d1774a360bb3897a889e14d416c3b2dff26156a506ff199c3388d"
 
    strings:

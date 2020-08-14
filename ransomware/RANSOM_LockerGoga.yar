@@ -1,5 +1,3 @@
-import "pe"
-
 rule LockerGogaRansomware {
    
    meta:
@@ -7,9 +5,12 @@ rule LockerGogaRansomware {
       description = "LockerGoga Ransomware"
       author = "Christiaan Beek - McAfee ATR team"
       date = "2019-03-20"
-      hash1 = "88d149f3e47dc337695d76da52b25660e3a454768af0d7e59c913995af496a0f"
-      hash2 = "c97d9bbc80b573bdeeda3812f4d00e5183493dd0d5805e2508728f65977dda15"
-      hash3 = "ba15c27f26265f4b063b65654e9d7c248d0d651919fafb68cb4765d1e057f93f"
+      rule_version = "v1"
+      malware_type = "ransomware"
+      malware_family = "Ransom:W32/LockerGoga"
+      actor_type = "Cybercrime"
+      actor_group = "Unknown"
+      hash = "ba15c27f26265f4b063b65654e9d7c248d0d651919fafb68cb4765d1e057f93f"
 
    strings:
 
@@ -27,5 +28,9 @@ rule LockerGogaRansomware {
 
    condition:
 
-      ( uint16(0) == 0x5a4d and filesize < 2000KB and ( 6 of them ) and all of ($op*)) or ( all of them )
+      ( uint16(0) == 0x5a4d and
+      filesize < 2000KB and
+      ( 6 of them ) and
+      all of ($op*)) or
+      ( all of them )
 }

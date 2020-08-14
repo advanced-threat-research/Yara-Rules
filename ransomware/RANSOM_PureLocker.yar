@@ -4,8 +4,14 @@ rule purelocker_ransomware {
               
               description = "Rule to detect PureLocker ransomware based on binary sequences"
               author = "Marc Rivero | McAfee ATR Team"
-              reference = "https://www.pandasecurity.com/mediacenter/security/purelocker-ransomware-servers/"
               date = "2019-11-13"
+              rule_version = "v1"
+              malware_type = "ransomware"
+              malware_family = "Ransom:W32/PureLocker"
+              actor_type = "Cybercrime"
+              actor_group = "Unknown"
+              reference = "https://www.pandasecurity.com/mediacenter/security/purelocker-ransomware-servers/"
+              
               
         strings:
         

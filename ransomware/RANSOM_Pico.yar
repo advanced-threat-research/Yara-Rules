@@ -4,8 +4,13 @@ rule pico_ransomware {
    
       description = "Rule to detect Pico Ransomware"
       author = "Marc Rivero | McAfee ATR Team"
-      reference = "https://twitter.com/siri_urz/status/1035138577934557184"
       date = "2018-08-30"
+      rule_version = "v1"
+      malware_type = "ransomware"
+      malware_family = "Ransom:W32/Pico"
+      actor_type = "Cybercrime"
+      actor_group = "Unknown"
+      reference = "https://twitter.com/siri_urz/status/1035138577934557184"
       hash = "cc4a9e410d38a29d0b6c19e79223b270e3a1c326b79c03bec73840b37778bc06"
       
    strings:

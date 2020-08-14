@@ -1,11 +1,17 @@
 rule bitpaymer_ransomware {
    
    meta:
+   
       description = "Rule to detect BitPaymer Ransomware"
       author = "Marc Rivero | McAfee ATR Team"
-      reference = "https://www.mcafee.com/blogs/other-blogs/mcafee-labs/spanish-mssp-targeted-by-bitpaymer-ransomware/"
       date = "2019-11-08"
-      
+      rule_version = "v1"
+      malware_type = "ransomware"
+      malware_family = "Ransom:W32/BitPaymer"
+      actor_type = "Cybercrime"
+      actor_group = "Unknown"
+      reference = "https://www.mcafee.com/blogs/other-blogs/mcafee-labs/spanish-mssp-targeted-by-bitpaymer-ransomware/"
+        
    strings:
 
       $s1 = "IEncrypt.dll" fullword wide

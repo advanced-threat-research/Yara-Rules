@@ -4,8 +4,13 @@ rule termite_ransomware {
 
       description = "Rule to detect the Termite Ransomware"
       author = "Marc Rivero | McAfee ATR Team"
-      reference = "https://www.bleepingcomputer.com/news/security/the-week-in-ransomware-august-31st-2018-devs-on-vacation/"
       date = "2018-08-28"
+      rule_version = "v1"
+      malware_type = "ransomware"
+      malware_family = "Ransom:W32/Termite"
+      actor_type = "Cybercrime"
+      actor_group = "Unknown"
+      reference = "https://www.bleepingcomputer.com/news/security/the-week-in-ransomware-august-31st-2018-devs-on-vacation/"
       hash = "021ca4692d3a721af510f294326a31780d6f8fcd9be2046d1c2a0902a7d58133"
       
    strings:

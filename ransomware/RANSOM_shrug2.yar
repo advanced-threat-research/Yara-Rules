@@ -4,8 +4,13 @@ rule shrug2_ransomware {
 
       description = "Rule to detect the Shrug Ransomware"
       author = "Marc Rivero | McAfee ATR Team"
-      reference = "https://blogs.quickheal.com/new-net-ransomware-shrug2/"
       date = "2018-07-12"
+      rule_version = "v1"
+      malware_type = "ransomware"
+      malware_family = "Ransom:W32/Shrug"
+      actor_type = "Cybercrime"
+      actor_group = "Unknown"
+      reference = "https://blogs.quickheal.com/new-net-ransomware-shrug2/"
       hash = "c89833833885bafdcfa1c6ee84d7dbcf2389b85d7282a6d5747da22138bd5c59"
        
    strings:

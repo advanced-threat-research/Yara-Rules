@@ -6,8 +6,12 @@ rule BadBunny {
 
       description = "Bad Rabbit Ransomware"
       author = "Christiaan Beek"
-      reference = "BadRabbit"
       date = "2017-10-24"
+      rule_version = "v1"
+      malware_type = "ransomware"
+      malware_family = "Ransom:W32/BadRabbit"
+      actor_type = "Cybercrime"
+      actor_group = "Unknown"    
       hash1 = "8ebc97e05c8e1073bda2efb6f4d00ad7e789260afa2c276f0c72740b838a0a93"
    
    strings:
@@ -34,8 +38,12 @@ rule BadBunny {
    
    condition:
    
-      ( uint16(0) == 0x5a4d and filesize < 400KB and pe.imphash() == "94f57453c539227031b918edd52fc7f1" and ( 1 of ($x*) or 4 of them )
-      ) or ( all of them )
+      ( uint16(0) == 0x5a4d and
+      filesize < 400KB and 
+      pe.imphash() == "94f57453c539227031b918edd52fc7f1" and 
+      ( 1 of ($x*) or
+      4 of them )) or
+      ( all of them )
 }
 
 rule badrabbit_ransomware {
@@ -44,6 +52,11 @@ rule badrabbit_ransomware {
 
       description = "Rule to detect Bad Rabbit Ransomware"
       author = "Marc Rivero | McAfee ATR Team"
+      rule_version = "v1"
+      malware_type = "ransomware"
+      malware_family = "Ransom:W32/BadRabbit"
+      actor_type = "Cybercrime"
+      actor_group = "Unknown" 
       reference = "https://securelist.com/bad-rabbit-ransomware/82851/"
 
    strings:

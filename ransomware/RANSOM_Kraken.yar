@@ -4,8 +4,13 @@ rule kraken_cryptor_ransomware_loader {
 
       description = "Rule to detect the Kraken Cryptor Ransomware loader"
       author = "Marc Rivero | McAfee ATR Team"
-      reference = "https://www.mcafee.com/blogs/other-blogs/mcafee-labs/fallout-exploit-kit-releases-the-kraken-ransomware-on-its-victims/"
       date = "2018-09-30"
+      rule_version = "v1"
+      malware_type = "ransomware"
+      malware_family = "Ransom:W32/Kraken"
+      actor_type = "Cybercrime"
+      actor_group = "Unknown"
+      reference = "https://www.mcafee.com/blogs/other-blogs/mcafee-labs/fallout-exploit-kit-releases-the-kraken-ransomware-on-its-victims/"
       hash = "564154a2e3647318ca40a5ffa68d06b1bd40b606cae1d15985e3d15097b512cd"
 
    strings:
@@ -30,8 +35,13 @@ rule kraken_cryptor_ransomware {
 
       description = "Rule to detect the Kraken Cryptor Ransomware"
       author = "Marc Rivero | McAfee ATR Team"
-      reference = "https://www.mcafee.com/blogs/other-blogs/mcafee-labs/fallout-exploit-kit-releases-the-kraken-ransomware-on-its-victims/"
       date = "2018-09-30"
+      rule_version = "v1"
+      malware_type = "ransomware"
+      malware_family = "Ransom:W32/Kraken"
+      actor_type = "Cybercrime"
+      actor_group = "Unknown"
+      reference = "https://www.mcafee.com/blogs/other-blogs/mcafee-labs/fallout-exploit-kit-releases-the-kraken-ransomware-on-its-victims/"
       hash = "564154a2e3647318ca40a5ffa68d06b1bd40b606cae1d15985e3d15097b512cd"
 
    strings:
@@ -59,8 +69,13 @@ rule ransom_note_kraken_cryptor_ransomware {
 
       description = "Rule to detect the ransom note delivered by Kraken Cryptor Ransomware"
       author = "Marc Rivero | McAfee ATR Team"
-      reference = "https://www.mcafee.com/blogs/other-blogs/mcafee-labs/fallout-exploit-kit-releases-the-kraken-ransomware-on-its-victims/"
       date = "2018-09-30"
+      rule_version = "v1"
+      malware_type = "ransomware"
+      malware_family = "Ransom:W32/Kraken"
+      actor_type = "Cybercrime"
+      actor_group = "Unknown"
+      reference = "https://www.mcafee.com/blogs/other-blogs/mcafee-labs/fallout-exploit-kit-releases-the-kraken-ransomware-on-its-victims/"
 
    strings:
 

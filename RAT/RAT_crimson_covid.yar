@@ -1,11 +1,16 @@
-rule crimsonrat_covid {
+rule RAT_crimsonrat_covid {
    
    meta:
 
       description = "Rule to detect the Crimson RAT samples used in the Covid Campaign"
       author = "Marc Rivero | McAfee ATR Team"
-      reference = "https://blog.malwarebytes.com/threat-analysis/2020/03/apt36-jumps-on-the-coronavirus-bandwagon-delivers-crimson-rat/"
       date = "2020-04-16"
+      rule_version = "v1"
+      malware_type = "rat"
+      malware_family = "Rat:W32/CrimSonRAT"
+      actor_type = "Cybercrime"
+      actor_group = "Unknown"
+      reference = "https://blog.malwarebytes.com/threat-analysis/2020/03/apt36-jumps-on-the-coronavirus-bandwagon-delivers-crimson-rat/"
       hash = "0ee399769a6e6e6d444a819ff0ca564ae584760baba93eff766926b1effe0010"
       hash = "b67d764c981a298fa2bb14ca7faffc68ec30ad34380ad8a92911b2350104e748"
    

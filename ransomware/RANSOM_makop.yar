@@ -7,8 +7,10 @@ rule RANSOM_makop
         date = "2020-07-19"
         rule_version = "v1"
         malware_type = "ransomware"
+        malware_family = "Ransom:W32/Makop"
         actor_type = "Cybercrime"
-        hash1 = "008e4c327875110b96deef1dd8ef65cefa201fef60ca1cbb9ab51b5304e66fe1"
+        actor_group = "Unknown"
+        hash = "008e4c327875110b96deef1dd8ef65cefa201fef60ca1cbb9ab51b5304e66fe1"
     
     strings:
 
@@ -25,5 +27,6 @@ rule RANSOM_makop
    
     condition:
 
-        7 of them and filesize < 237568
+        7 of them and
+        filesize < 237568
 }

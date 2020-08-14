@@ -5,8 +5,12 @@ rule cuba_ransomware  {
       description = "Rule to detect Fidel/Cuba Ransomware"
       author = "Marc Rivero | McAfee ATR Team"
       date = "2020-04-01"
+      rule_version = "v1"
+      malware_type = "ransomware"
+      malware_family = "Ransom:W32/Cuba"
+      actor_type = "Cybercrime"
+      actor_group = "Unknown"
       reference = "https://id-ransomware.blogspot.com/2019/12/cuba-ransomware.html"
-      hash = "b952e63fe46b25ee4ecb725373bddd1b1776fbc4ba73aee7b7b384a3b0f7f71e"
       hash = "78ce13d09d828fc8b06cf55f8247bac07379d0c8b8c8b1a6996c29163fa4b659"
       
    strings:

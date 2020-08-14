@@ -3,8 +3,13 @@ rule apt_auriga_driver {
    meta:
    
       description = "Rule to detect the Auriga driver"
-      author = "yarGen Rule Generator"
+      author = "Marc Rivero | McAfee ATR Team"
       reference = "https://www.fireeye.com/content/dam/fireeye-www/services/pdfs/mandiant-apt1-report.pdf"
+      rule_version = "v1"
+      malware_type = "kerneldriver"
+      malware_family = "Driver:W32/Auriga"
+      actor_type = "APT"
+      actor_group = "APT1"
       date = "2013-03-13"
       hash = "207eee627a76449ac6d2ca43338d28087c8b184e7b7b50fdc60a11950c8283ec"
    

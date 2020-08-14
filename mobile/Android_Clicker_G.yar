@@ -1,13 +1,18 @@
 import "androguard"
 
-rule Android_Clicker_G
+rule CLICKER_android_Clicker_G
 {
 	meta:
 
-		author = "Jacob Soo Lead Re"
-		date = "01-July-2016"
 		description = "This rule try to detects Clicker.G samples"
-		reference = "https://blogs.mcafee.com/mcafee-labs/android-malware-clicker-dgen-found-google-play/"
+		author = "Jacob Soo Lead Re"
+		date = "2016-07-01"
+        rule_version = "v1"
+        malware_type = "Clicker"
+        malware_family = "Clicker:Android/Clicker"
+        actor_type = "Cybercrime"
+        actor_group = "Unknown"	
+		reference = "https://www.mcafee.com/blogs/other-blogs/mcafee-labs/android-malware-clicker-dgen-found-google-play/"
 	
 	strings:
 

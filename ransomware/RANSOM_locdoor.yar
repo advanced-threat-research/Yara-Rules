@@ -4,8 +4,13 @@ rule locdoor_ransomware {
 
       description = "Rule to detect Locdoor/DryCry"
       author = "Marc Rivero | McAfee ATR Team"
-      reference = "https://twitter.com/leotpsc/status/1036180615744376832"
       date = "2018-09-02"
+      rule_version = "v1"
+      malware_type = "ransomware"
+      malware_family = "Ransom:W32/Locdoor"
+      actor_type = "Cybercrime"
+      actor_group = "Unknown"
+      reference = "https://twitter.com/leotpsc/status/1036180615744376832"     
       hash = "0000c55f7cdbbad9bacba0e79637696f3bfeb95a5f71dfa0b398bc77a207eb41"
 
    strings:

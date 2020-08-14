@@ -8,10 +8,9 @@ rule MALW_thiefquest
         rule_version = "v1"
         malware_type = "keylogger, backdoor, ransomware"
         actor_type = "Cybercrime"
+        malware_family = "Ransom:OSX/ThiefQuest"
         reference = "https://www.bleepingcomputer.com/news/security/thiefquest-ransomware-is-a-file-stealing-mac-wiper-in-disguise/"
         hash = "5a024ffabefa6082031dccdb1e74a7fec9f60f257cd0b1ab0f698ba2a5baca6b"
-        hash = "b34738e181a6119f23e930476ae949fc0c7c4ded6efa003019fa946c4e5b287a"
-        hash = "f8d91b8798bd9d5d348beab33604a540e13ce40b88adc096c8f1b3311187e6fa"
     
     strings:
 
@@ -42,5 +41,6 @@ rule MALW_thiefquest
    
     condition:
 
-        7 of them and filesize < 124322606
+        7 of them and
+        filesize < 124322606
 }

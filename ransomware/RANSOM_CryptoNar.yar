@@ -4,6 +4,11 @@ rule cryptonar_ransomware {
    
       description = "Rule to detect CryptoNar Ransomware"
       author = "Marc Rivero | McAfee ATR Team"
+      rule_version = "v1"
+      malware_type = "ransomware"
+      malware_family = "Ransom:W32/CryptoNar"
+      actor_type = "Cybercrime"
+      actor_group = "Unknown"
       reference = "https://www.bleepingcomputer.com/news/security/cryptonar-ransomware-discovered-and-quickly-decrypted/"
       
    strings:

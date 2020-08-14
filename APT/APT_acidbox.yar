@@ -3,10 +3,12 @@ rule APT_acidbox_kernelmode_module
     meta:
     
         description = "Rule to detect the kernel mode component of AcidBox"
-        author = "Marc Rivero | McAfee ATR Team"
         date = "2020-07-24"
         rule_version = "v1"
-        actor_type = "turla"
+        malware_type = "kerneldriver"
+        malware_family = "Rootkit:W32/Acidbox"
+        actor_type = "APT"
+        actor_group = "Turla"
         hash1 = "3ef071e0327e7014dd374d96bed023e6c434df6f98cce88a1e7335a667f6749d"
     
     strings:
@@ -35,7 +37,10 @@ rule APT_acidbox_main_module_dll
         author = "Marc Rivero | McAfee ATR Team"
         date = "2020-07-24"
         rule_version = "v1"
-        actor_type = "turla"
+        malware_type = "backdoor"
+        malware_family = "Backdoor:W32/Acidbox"
+        actor_type = "APT"
+        actor_group = "Turla"
         hash1 = "eb30a1822bd6f503f8151cb04bfd315a62fa67dbfe1f573e6fcfd74636ecedd5"
     
     strings:
@@ -61,10 +66,12 @@ rule APT_acidbox_ssp_dll_module
     meta:
     
         description = "Rule to detect the SSP DLL component of AcidBox"
-        author = "Marc Rivero | McAfee ATR Team"
         date = "2020-07-24"
         rule_version = "v1"
-        actor_type = "turla"
+        malware_type = "backdoor"
+        malware_family = "Backdoor:W32/Acidbox"
+        actor_type = "APT"
+        actor_group = "Turla"
         hash1 = "003669761229d3e1db0f5a5b333ef62b3dffcc8e27c821ce9018362e0a2df7e9"
     
     strings:

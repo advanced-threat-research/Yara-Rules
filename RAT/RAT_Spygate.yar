@@ -1,11 +1,16 @@
-rule SpyGate_v2_9
+rule RAT_spygate_v2_9
 {
 	meta:
 
+		description = "Spygate v2.9 Remote Access Trojan"
 		date = "2014/09"
-		maltype = "Spygate v2.9 Remote Access Trojan"
-		filetype = "exe"
-		reference = "https://blogs.mcafee.com/mcafee-labs/middle-east-developer-spygate-struts-stuff-online"
+        rule_version = "v1"
+        malware_type = "rat"
+        malware_family = "Rat:W32/SpyGate"
+        actor_type = "Cybercrime"
+        actor_group = "Unknown"
+        reference = "https://blogs.mcafee.com/mcafee-labs/middle-east-developer-spygate-struts-stuff-online"
+		
 	
 	strings:
 
@@ -16,5 +21,6 @@ rule SpyGate_v2_9
 		$5 = "FileManagerSplit" wide
 	
 	condition:
+	
 		all of them
 }

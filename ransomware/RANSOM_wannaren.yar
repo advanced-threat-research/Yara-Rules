@@ -5,13 +5,15 @@ rule wannaren_ransomware {
         description = "Rule to detect WannaRen Ransomware"
         author = "Marc Rivero | McAfee ATR Team"
         date = "2020-04-25"
+        rule_version = "v1"
+        malware_type = "ransomware"
+        malware_family = "Ransom:W32/WannaRen"
+        actor_type = "Cybercrime"
+        actor_group = "Unknown"
         reference = "https://blog.360totalsecurity.com/en/attention-you-may-have-become-a-susceptible-group-of-wannaren-ransomware/"
-        hash = "0a3642a276f4657a654f164a294098a33bbe1e0ad5eeab222a78379844fad35c"
         hash = "7b364f1c854e6891c8d09766bcc9a49420e0b5b4084d74aa331ae94e2cfb7e1d"
         
-
     strings:
-
 
         $sq0 = { 92 93 a91c2ea521 59 334826 }
         $sq1 = { d0ce 6641 c1e9c0 41 80f652 49 c1f94d }

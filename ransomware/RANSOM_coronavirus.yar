@@ -4,8 +4,13 @@ rule installer_coronavirus {
    
       description = "Rule to detect the Corona Virus Installer"
       author = "Marc Rivero | McAfee ATR Team"
-      reference = "https://twitter.com/malwrhunterteam/status/1238056503493505024"
       date = "2020-03-25"
+      rule_version = "v1"
+      malware_type = "ransomware"
+      malware_family = "Ransom:W32/CoronaVirus"
+      actor_type = "Cybercrime"
+      actor_group = "Unknown"
+      reference = "https://twitter.com/malwrhunterteam/status/1238056503493505024"
       hash = "5987a6e42c3412086b7c9067dc25f1aaa659b2b123581899e9df92cb7907a3ed"
 
    strings:
@@ -41,8 +46,13 @@ rule ransomware_coronavirus {
    
       description = "Rule to detect the Corona Virus ransomware"
       author = "Marc Rivero | McAfee ATR Team"
-      reference = "https://twitter.com/malwrhunterteam/status/1238056503493505024"
       date = "2020-03-25"
+      rule_version = "v1"
+      malware_type = "ransomware"
+      malware_family = "Ransom:W32/CoronaVirus"
+      actor_type = "Cybercrime"
+      actor_group = "Unknown"
+      reference = "https://twitter.com/malwrhunterteam/status/1238056503493505024"
       hash = "3299f07bc0711b3587fe8a1c6bf3ee6bcbc14cb775f64b28a61d72ebcb8968d3"
    
    strings:
