@@ -35,7 +35,6 @@ rule STEALER_Lokibot
     condition:
 
        uint16(0) == 0x5a4d and
-       filesize and 
        any of them 
 }
 
