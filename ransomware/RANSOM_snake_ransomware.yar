@@ -3,7 +3,7 @@ rule snake_ransomware {
 	meta:
 
 		description = "Rule to detect Snake ransomware"
-		author = "Marc Rivero | McAfee ATR Team"
+		author = "McAfee ATR Team"
 		date = "2020-02-20"
 		rule_version = "v1"
         malware_type = "ransomware"
