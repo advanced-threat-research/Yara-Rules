@@ -3,7 +3,7 @@ rule shrug2_ransomware {
    meta:
 
       description = "Rule to detect the Shrug Ransomware"
-      author = "Marc Rivero | McAfee ATR Team"
+      author = "McAfee ATR Team"
       date = "2018-07-12"
       rule_version = "v1"
       malware_type = "ransomware"
