@@ -3,7 +3,7 @@ rule termite_ransomware {
    meta:
 
       description = "Rule to detect the Termite Ransomware"
-      author = "Marc Rivero | McAfee ATR Team"
+      author = "McAfee ATR Team"
       date = "2018-08-28"
       rule_version = "v1"
       malware_type = "ransomware"
