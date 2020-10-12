@@ -3,7 +3,7 @@ rule MALW_thiefquest
     meta:
     
         description = "Rule to detect the Evilquest/ThiefQuest malware"
-        author = "Marc Rivero | McAfee ATR Team"
+        author = "McAfee ATR Team"
         date = "2020-07-09"
         rule_version = "v1"
         malware_type = "keylogger, backdoor, ransomware"
