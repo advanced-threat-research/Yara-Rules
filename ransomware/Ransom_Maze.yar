@@ -3,7 +3,7 @@ rule Ransom_Maze {
    meta:
    
       description = "Detecting MAZE Ransomware"
-      author = "Christiaan Beek | McAfee ATR"
+      author = "McAfee ATR"
       date = "2020-04-19"
       rule_version = "v1"
       malware_type = "ransomware"
