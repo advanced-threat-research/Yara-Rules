@@ -3,7 +3,7 @@ rule RANSOM_Exorcist
     meta:
        
         description = "Rule to detect Exorcist"
-        author = "Marc Rivero | McAfee ATR Team"
+        author = "McAfee ATR Team"
         date = "2020-09-01"
         rule_version = "v1"
         malware_type = "ransomware"
