@@ -3,7 +3,7 @@ rule RANSOM_wastedlocker
     meta:
     
         description = "Rule to detect unpacked samples of WastedLocker"
-        author = "Marc Rivero | McAfee ATR Team"
+        author = "McAfee ATR Team"
         date = "2020-07-27"
         rule_version = "v1"
         malware_type = "ransomware"
