@@ -5,7 +5,7 @@ rule ransom_conti {
    meta:
 
       description = "Conti ransomware is havnig capability too scan and encrypt oover the network"
-      author = "Christiaan Beek @ McAfee ATR"
+      author = "McAfee ATR team"
       reference = "https://www.carbonblack.com/blog/tau-threat-discovery-conti-ransomware/"
       date = "2020-07-09"
       rule_version = "v1"
