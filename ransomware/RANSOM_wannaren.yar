@@ -3,7 +3,7 @@ rule wannaren_ransomware {
     meta:
 
         description = "Rule to detect WannaRen Ransomware"
-        author = "Marc Rivero | McAfee ATR Team"
+        author = "McAfee ATR Team"
         date = "2020-04-25"
         rule_version = "v1"
         malware_type = "ransomware"
