@@ -2,8 +2,8 @@ import "pe"
 
 rule Ransom_TunderX {
    meta:
-      description = "Rule to dettect tthe ThunderX ransomware family"
-      author = "Christiaan Beek @ McAfee ATR team"
+      description = "Rule to detect tthe ThunderX ransomware family"
+      author = "McAfee ATR team"
       date = "2020-09-14"
       rule_version = "v1"
       malware_type = "ransomware"
