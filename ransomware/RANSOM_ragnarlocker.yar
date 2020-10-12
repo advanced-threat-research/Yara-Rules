@@ -5,7 +5,7 @@ rule ragnarlocker_ransomware {
    meta:
    
       description = "Rule to detect RagnarLocker samples"
-      author = "Christiaan Beek | Marc Rivero | McAfee ATR Team"
+      author = "McAfee ATR Team"
       date = "2020-04-15"
       rule_version = "v1"
       malware_type = "ransomware"
