@@ -3,7 +3,7 @@ rule RANSOM_mountlocker
    meta:
 
       description = "Rule to detect Mount Locker ransomware"
-      author = "Marc Rivero | McAfee ATR Team"
+      author = "McAfee ATR Team"
       date = "2020-09-25"
       rule_version = "v1"
       malware_type = "ransomware"
