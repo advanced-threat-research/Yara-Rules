@@ -10,7 +10,7 @@ rule ransom_egregor {
       date = "2020-10-28"
       rule_version = "v1"
       malware_type = "ransomware"
-      malware_family = "Ransom"
+      malware_family = "Ransom/Egregor"
       actor_type = "Cybercrime"
       actor_group = "egregor"
       hash = "5f9fcbdf7ad86583eb2bbcaa5741d88a"
