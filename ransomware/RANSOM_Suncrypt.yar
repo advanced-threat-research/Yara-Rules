@@ -4,7 +4,7 @@ rule RANSOM_Suncrypt
     meta:
 
         description = "Rule to detect SunCrypt ransomware"
-        author = "Marc Rivero | McAfee ATR Team"
+        author = "McAfee ATR Team"
         date = "2020-10-02"
         rule_version = "v1"
         malware_type = "ransomware"
@@ -29,7 +29,7 @@ rule RANSOM_Suncrypt_decryptor
    meta:
 
       description = "Rule to detect SunCrypt ransomware decryptor"
-      author = "Marc Rivero | McAfee ATR Team"
+      author = "McAfee ATR Team"
       date = "2020-10-02"
       rule_version = "v1"
       malware_type = "ransomware"
