@@ -6,13 +6,10 @@ rule netwalker_ransomware
         meta:
 
             description = "Rule to detect Netwalker ransomware"
-            author = "Marc Rivero | McAfee ATR Team"
+            author = "McAfee ATR Team"
             date = "2020-03-30"
             rule_version = "v1"
             malware_type = "ransomware"
-            malware_family = "Ransom:W32/Netwalker"
-            actor_type = "Cybercrime"
-            actor_group = "Unknown"
             reference = "https://www.ccn-cert.cni.es/comunicacion-eventos/comunicados-ccn-cert/9802-publicado-un-informe-de-codigo-danino-sobre-netwalker.html"
             note = "The rule doesn't detect the samples packed with UPX"
             
@@ -58,8 +55,6 @@ rule Netwalker {
         date = "2020-06-14"
         rule_version = "v1"
         malware_type = "ransomware"
-        malware_family = "Ransom:W32/Netwalker"
-        actor_type = "Cybercrime"
         actor_group = "Unknown"
 
   strings:
@@ -88,9 +83,6 @@ rule win_netwalker_reflective_dll_injection_decoded {
         date = "2020-05-28"
         rule_version = "v1"
         malware_type = "ransomware"
-        malware_family = "Ransom:W32/Netwalker"
-        actor_type = "Cybercrime"
-        actor_group = "Unknown"
         reference = "https://blog.trendmicro.com/trendlabs-security-intelligence/netwalker-fileless-ransomware-injected-via-reflective-loading/ | https://news.sophos.com/en-us/2020/05/27/netwalker-ransomware-tools-give-insight-into-threat-actor/"
         hash = "fd29001b8b635e6c51270788bab7af0bb5adba6917c278b93161cfc2bc7bd6ae"
         
