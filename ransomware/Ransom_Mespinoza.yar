@@ -5,7 +5,7 @@ rule ransom_mespinoza {
       description = "rule to detect Mespinoza ransomware"
       author = "Christiaan Beek @ McAfee ATR"
       date = "2020-11-24"
-      malware_family: "ransom_Win_Mespinoza"
+      malware_family = "ransom_Win_Mespinoza"
       hash1 = "e9662b468135f758a9487a1be50159ef57f3050b753de2915763b4ed78839ead"
       hash2 = "48355bd2a57d92e017bdada911a4b31aa7225c0b12231c9cbda6717616abaea3"
       hash3 = "e4287e9708a73ce6a9b7a3e7c72462b01f7cc3c595d972cf2984185ac1a3a4a8"
