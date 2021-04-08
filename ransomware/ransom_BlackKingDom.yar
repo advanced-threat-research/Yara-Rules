@@ -1,6 +1,6 @@
 import "pe"
 
-ransom_Black_KingDom
+rule ransom_Black_KingDom
 {
 
 meta:
