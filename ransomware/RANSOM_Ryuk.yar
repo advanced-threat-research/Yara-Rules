@@ -87,3 +87,26 @@ rule Ransom_Ryuk_sept2020 {
       ( 1 of ($x*) and 5 of them ) and 
       all of ($seq*)) or ( all of them )
 }
+
+rule RANSOM_RYUK_May2021 : ransomware
+{
+	meta:
+		description = "Rule to detect latest May 2021 compiled Ryuk variant"
+		author = "Marc Elias | McAfee ATR Team"
+		date = "2021-05-21"
+		hash = "8f368b029a3a5517cb133529274834585d087a2d3a5875d03ea38e5774019c8a"
+		version = "0.1"
+
+	strings:
+		$ryuk_filemarker = "RYUKTM" fullword wide ascii
+		
+		$sleep_constants = { 68 F0 49 02 00 FF (15|D1) [0-4] 68 ?? ?? ?? ?? 6A 01 }
+		$icmp_echo_constants = { 68 A4 06 00 00 6A 44 8D [1-6] 5? 6A 00 6A 20 [5-20] FF 15 }
+		
+	condition:
+		uint16(0) == 0x5a4d
+		and filesize < 200KB
+		and ( $ryuk_filemarker
+		or ( $sleep_constants 
+		and $icmp_echo_constants ))
+}
