@@ -105,6 +105,7 @@ rule RANSOM_RYUK_May2021 : ransomware
 		
 	condition:
 		uint16(0) == 0x5a4d
+		and uint32(uint32(0x3C)) == 0x00004550
 		and filesize < 200KB
 		and ( $ryuk_filemarker
 		or ( $sleep_constants 
