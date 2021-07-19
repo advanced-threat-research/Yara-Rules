@@ -1,6 +1,6 @@
 rule ransom_Linux_HelloKitty_0721 {
    meta:
-      description = "malware - from files ca607e431062ee49a21d69d722750e5edbd8ffabcb54fa92b231814101756041, 556e5cb5e4e77678110961c8d9260a726a363e00bf8d278e5302cb4bfccc3eed, 9f82f22c137688d0b3e7912d415605d2bbc56478311fd0b3dc265f8d0006aa8c, b4f90cff1e3900a3906c3b74f307498760462d719c31d008fc01937f5400fb85"
+      description = "rule to detect Linux variant of the Hello Kitty Ransomware"
       author = "Christiaan @ ATR"
       date = "2021-07-19"
       Rule_Version = "v1"
