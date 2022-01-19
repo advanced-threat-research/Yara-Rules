@@ -3,7 +3,7 @@ rule MINER_monero_mining_detection {
    meta:
 
       description = "Monero mining software"
-      author = "Christiaan Beek | McAfee ATR Team"
+      author = "Trellix ATR team"
       date = "2018-04-05"
       rule_version = "v1"
       malware_type = "miner"
