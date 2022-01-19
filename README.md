@@ -1,7 +1,7 @@
                                                                 
 #### Yara-Rules ####
 
-Repository of YARA rules to accompany the McAfee Enterprise ATR blogposts & investigations
+Repository of YARA rules to accompany the Trellix ATR blogposts & investigations
 
 We endorse contributing to improve our rules - please send us a pull request with your proposal
 
