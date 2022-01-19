@@ -3,7 +3,7 @@ import "pe"
 rule Trojan_CoinMiner {
    meta:
       description = "Rule to detect Coinminer malware"
-      author = "CB @ ATR"
+      author = "Trellix ATR"
       date = "2021-07-22"
       version = "v1"
       hash1 = "3bdac08131ba5138bcb5abaf781d6dc7421272ce926bc37fa27ca3eeddcec3c2"
