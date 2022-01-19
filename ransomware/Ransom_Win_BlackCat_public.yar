@@ -3,7 +3,7 @@ rule Ransom_Win_BlackCat
 {
   meta:
   description = "Detecting variants of Windows BlackCat malware"
-  author = " cb @ McAfee Enterprise ATR"
+  author = " Trellix ATR"
   date = "2022-01-06"
   malware_type = "Ransomware"
   detection_name = "Ransom_Win_BlackCat"
